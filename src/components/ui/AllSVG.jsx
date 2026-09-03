@@ -16,3 +16,41 @@ export function PhoneIcon({ className = 'size-4', strokeWidth = 1.8 }) {
     </svg>
   )
 }
+
+export function ArrowRightIcon({ className = 'size-4', strokeWidth = 1.8 }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+      aria-hidden="true"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M4.5 12h15m0 0-6.75-6.75M19.5 12l-6.75 6.75"
+      />
+    </svg>
+  )
+}
+
+export function MailIcon({ className = 'size-4', strokeWidth = 1.8 }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+      aria-hidden="true"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25H4.5a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5H4.5a2.25 2.25 0 0 0-2.25 2.25m19.5 0-8.634 6.116a2.25 2.25 0 0 1-2.732 0L2.25 6.75"
+      />
+    </svg>
+  )
+}
