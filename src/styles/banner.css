@@ -1,0 +1,344 @@
+@keyframes banner-ken-1 {
+  from {
+    transform: scale(1.08) translate3d(-2.5%, 0, 0);
+  }
+  to {
+    transform: scale(1.18) translate3d(2.5%, 0, 0);
+  }
+}
+
+@keyframes banner-ken-2 {
+  from {
+    transform: scale(1.08) translate3d(1.5%, 0, 0);
+  }
+  to {
+    transform: scale(1.16) translate3d(-1.5%, 0, 0);
+  }
+}
+
+@keyframes banner-ken-3 {
+  from {
+    transform: scale(1.06) rotate(-0.7deg);
+  }
+  to {
+    transform: scale(1.16) rotate(0.5deg);
+  }
+}
+
+@keyframes banner-curtain-in {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes banner-curtain-in-rtl {
+  from {
+    clip-path: inset(0 0 0 100%);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes banner-iris-in {
+  from {
+    clip-path: circle(0% at 72% 46%);
+  }
+  to {
+    clip-path: circle(150% at 72% 46%);
+  }
+}
+
+@keyframes banner-shutter-in {
+  from {
+    clip-path: inset(48% 0 48% 0);
+    filter: blur(8px);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    filter: blur(0);
+  }
+}
+
+@keyframes banner-sheen {
+  from {
+    transform: translateX(-40%);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.7;
+  }
+  to {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+}
+
+@keyframes banner-gold-edge {
+  from {
+    left: 0;
+    opacity: 1;
+  }
+  to {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes banner-word {
+  from {
+    transform: translateY(110%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes banner-mask-right {
+  from {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0.4;
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+@keyframes banner-soft-zoom {
+  from {
+    transform: translateY(18px) scale(0.97);
+    opacity: 0;
+    filter: blur(6px);
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes banner-eyebrow {
+  from {
+    letter-spacing: 0.5em;
+    opacity: 0;
+  }
+  to {
+    letter-spacing: 0.28em;
+    opacity: 1;
+  }
+}
+
+@keyframes banner-draw {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes banner-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes banner-pulse {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 0.4;
+  }
+}
+
+@keyframes banner-counter {
+  from {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.banner-ken-1 {
+  animation: banner-ken-1 8.5s ease-out forwards;
+}
+
+.banner-ken-2 {
+  animation: banner-ken-2 8.5s ease-out forwards;
+}
+
+.banner-ken-3 {
+  animation: banner-ken-3 8.5s ease-out forwards;
+}
+
+.banner-slide {
+  position: absolute;
+  inset: 0;
+}
+
+.banner-slide.is-active {
+  z-index: 2;
+}
+
+.banner-slide.is-prev {
+  z-index: 1;
+}
+
+.banner-slide--curtain.is-active {
+  animation: banner-curtain-in 1.15s cubic-bezier(0.77, 0, 0.175, 1) both;
+}
+
+.banner-slide--curtain.is-active.is-rtl {
+  animation-name: banner-curtain-in-rtl;
+}
+
+.banner-slide--iris.is-active {
+  animation: banner-iris-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.banner-slide--shutter.is-active {
+  animation: banner-shutter-in 1.05s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.banner-sheen {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgb(255 193 7 / 0.16) 50%,
+    transparent 65%
+  );
+  animation: banner-sheen 1.15s ease-out both;
+}
+
+.banner-gold-edge {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+  width: 2px;
+  background: var(--color-secondary);
+  box-shadow: 0 0 18px rgb(255 193 7 / 0.7);
+  animation: banner-gold-edge 1.15s cubic-bezier(0.77, 0, 0.175, 1) both;
+}
+
+.banner-word {
+  display: inline-block;
+  overflow: hidden;
+  margin-right: 0.28em;
+  vertical-align: bottom;
+}
+
+.banner-word span {
+  display: inline-block;
+  animation: banner-word 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.home-banner {
+  height: 78vh;
+  min-height: 560px;
+}
+
+@media (min-width: 1024px) {
+  .home-banner {
+    height: calc(100svh - 8.5rem);
+    min-height: 640px;
+  }
+}
+
+.home-banner-copy {
+  min-height: 7.5rem;
+}
+
+@media (min-width: 640px) {
+  .home-banner-copy {
+    min-height: 8.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-banner-copy {
+    min-height: 10.5rem;
+  }
+}
+
+.banner-mask-right,
+.banner-soft-zoom {
+  display: block;
+}
+
+.banner-mask-right {
+  animation: banner-mask-right 1s cubic-bezier(0.77, 0, 0.175, 1) both;
+}
+
+.banner-soft-zoom {
+  animation: banner-soft-zoom 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.banner-eyebrow {
+  animation: banner-eyebrow 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.banner-draw {
+  transform-origin: left;
+  animation: banner-draw 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.banner-progress {
+  transform-origin: left;
+  animation: banner-progress 7.5s linear forwards;
+}
+
+.banner-progress.is-paused {
+  animation-play-state: paused;
+}
+
+.banner-scroll-hint {
+  animation: banner-pulse 2.2s ease-in-out infinite;
+}
+
+.banner-counter {
+  animation: banner-counter 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .banner-ken-1,
+  .banner-ken-2,
+  .banner-ken-3,
+  .banner-slide--curtain.is-active,
+  .banner-slide--iris.is-active,
+  .banner-slide--shutter.is-active,
+  .banner-sheen,
+  .banner-gold-edge,
+  .banner-word span,
+  .banner-mask-right,
+  .banner-soft-zoom,
+  .banner-eyebrow,
+  .banner-draw,
+  .banner-progress,
+  .banner-scroll-hint,
+  .banner-counter {
+    animation: none;
+  }
+}

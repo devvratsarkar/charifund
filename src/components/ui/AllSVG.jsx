@@ -17,6 +17,25 @@ export function PhoneIcon({ className = 'size-4', strokeWidth = 1.8 }) {
   )
 }
 
+export function ArrowLeftIcon({ className = 'size-4', strokeWidth = 1.8 }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+      aria-hidden="true"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M19.5 12H4.5m0 0 6.75-6.75M4.5 12l6.75 6.75"
+      />
+    </svg>
+  )
+}
+
 export function ArrowRightIcon({ className = 'size-4', strokeWidth = 1.8 }) {
   return (
     <svg
