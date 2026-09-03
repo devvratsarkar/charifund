@@ -175,23 +175,23 @@ export default function HomeBanner() {
         <span key={`sheen-${active}`} className="banner-sheen" />
       </div>
 
-      <div className="custom_container relative z-10 flex h-full items-center py-16 pb-24">
+      <div className="custom_container relative z-10 flex h-full items-center py-10 pb-28 sm:py-16 sm:pb-24">
         <div key={active} className="max-w-3xl">
           <p
-            className="banner-eyebrow font-semibold uppercase tracking-[0.28em] text-secondary"
+            className="banner-eyebrow text-[11px] font-semibold uppercase tracking-[0.18em] text-secondary sm:text-sm sm:tracking-[0.28em]"
             style={{ animationDelay: '80ms' }}
           >
             {slide.eyebrow}
           </p>
           <span
-            className="banner-draw mt-5 block h-px w-16 bg-secondary"
+            className="banner-draw mt-4 block h-px w-16 bg-secondary sm:mt-5"
             style={{ animationDelay: '220ms' }}
           />
-          <h1 className="home-banner-copy mt-7 font-display text-4xl font-extrabold leading-[1.12] tracking-tight text-white sm:text-5xl lg:text-[4.25rem]">
+          <h1 className="home-banner-copy mt-5 font-display text-[1.85rem] font-extrabold leading-[1.15] tracking-tight text-white sm:mt-7 sm:text-5xl lg:text-[4.25rem]">
             <SlideTitle title={slide.title} effect={slide.textEffect} />
           </h1>
           <p
-            className={`mt-6 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg ${
+            className={`mt-4 max-w-xl text-[15px] leading-relaxed text-white/80 sm:mt-6 sm:text-lg ${
               slide.textEffect === 'zoom' ? 'banner-soft-zoom' : 'banner-mask-right'
             }`}
             style={{ animationDelay: '520ms' }}
@@ -199,18 +199,18 @@ export default function HomeBanner() {
             {slide.copy}
           </p>
 
-          <div className="banner-soft-zoom mt-10" style={{ animationDelay: '680ms' }}>
-            <div className="flex flex-wrap items-center gap-4">
+          <div className="banner-soft-zoom mt-7 sm:mt-10" style={{ animationDelay: '680ms' }}>
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4">
               <NavLink
                 to={getAboutPageRoute()}
-                className="group inline-flex items-center gap-2 bg-secondary px-7 py-3.5 text-[12px] font-extrabold uppercase tracking-[0.18em] text-primary transition-colors duration-300 hover:bg-white"
+                className="group inline-flex w-fit items-center justify-center gap-2 bg-secondary px-5 py-3 text-[11px] font-extrabold uppercase tracking-[0.14em] text-primary transition-colors duration-300 hover:bg-white sm:px-7 sm:py-3.5 sm:text-[12px] sm:tracking-[0.18em]"
               >
                 Join With Us
                 <ArrowRightIcon className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
               </NavLink>
               <NavLink
                 to={getContactPageRoute()}
-                className="inline-flex items-center gap-2 border border-white/30 px-7 py-3.5 text-[12px] font-extrabold uppercase tracking-[0.18em] text-white transition-colors duration-300 hover:border-secondary hover:text-secondary"
+                className="inline-flex w-fit items-center justify-center gap-2 border border-white/30 px-5 py-3 text-[11px] font-extrabold uppercase tracking-[0.14em] text-white transition-colors duration-300 hover:border-secondary hover:text-secondary sm:px-7 sm:py-3.5 sm:text-[12px] sm:tracking-[0.18em]"
               >
                 Donate Now
               </NavLink>
@@ -219,7 +219,7 @@ export default function HomeBanner() {
         </div>
       </div>
 
-        <div className="custom_container absolute inset-x-0 bottom-8 z-10 flex items-end justify-between gap-6">
+        <div className="custom_container absolute inset-x-0 bottom-4 z-10 flex items-end justify-between gap-4 sm:bottom-8 sm:gap-6">
           <div className="flex items-center gap-4">
             <span
               key={active}
@@ -239,11 +239,11 @@ export default function HomeBanner() {
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             <button
               type="button"
               onClick={() => goTo(active - 1)}
-              className="grid size-11 place-items-center border border-white/20 text-white transition-colors duration-300 hover:border-secondary hover:text-secondary"
+              className="grid size-10 place-items-center border border-white/20 text-white transition-colors duration-300 hover:border-secondary hover:text-secondary sm:size-11"
               aria-label="Previous slide"
             >
               <ArrowLeftIcon className="size-4" />
@@ -251,7 +251,7 @@ export default function HomeBanner() {
             <button
               type="button"
               onClick={() => goTo(active + 1)}
-              className="grid size-11 place-items-center border border-white/20 text-white transition-colors duration-300 hover:border-secondary hover:text-secondary"
+              className="grid size-10 place-items-center border border-white/20 text-white transition-colors duration-300 hover:border-secondary hover:text-secondary sm:size-11"
               aria-label="Next slide"
             >
               <ArrowRightIcon className="size-4" />

@@ -256,8 +256,15 @@
 }
 
 .home-banner {
-  height: 78vh;
-  min-height: 560px;
+  height: 70svh;
+  min-height: 460px;
+}
+
+@media (min-width: 640px) {
+  .home-banner {
+    height: 78vh;
+    min-height: 560px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -268,7 +275,7 @@
 }
 
 .home-banner-copy {
-  min-height: 7.5rem;
+  min-height: 5.25rem;
 }
 
 @media (min-width: 640px) {

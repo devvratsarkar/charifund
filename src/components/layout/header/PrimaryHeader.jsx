@@ -62,11 +62,11 @@ export default function PrimaryHeader() {
           isScrolled ? 'max-h-0 opacity-0' : 'max-h-12 opacity-100'
         }`}
       >
-        <div className="custom_container flex h-10 items-center justify-between gap-6 text-[11px] font-semibold tracking-[0.08em]">
+        <div className="custom_container flex h-10 items-center justify-between gap-3 text-[11px] font-semibold tracking-[0.08em]">
           <div className="flex min-w-0 items-center gap-0">
             <a
               href="mailto:info@icchashaktitrust.org"
-              className="flex items-center gap-2 truncate transition-colors hover:text-secondary"
+              className="flex min-w-0 items-center gap-2 truncate transition-colors hover:text-secondary"
             >
               <MailIcon className="size-3.5 shrink-0 text-secondary" />
               <span className="truncate">info@icchashaktitrust.org</span>
@@ -97,8 +97,8 @@ export default function PrimaryHeader() {
         }`}
       >
         <div
-          className={`custom_container grid grid-cols-[auto_1fr_auto] items-center gap-6 transition-[height] duration-300 ${
-            isScrolled ? 'h-18' : 'h-22'
+          className={`custom_container grid grid-cols-[1fr_auto] items-center gap-3 transition-[height] duration-300 lg:grid-cols-[auto_1fr_auto] lg:gap-6 ${
+            isScrolled ? 'h-16 sm:h-18' : 'h-16 sm:h-22'
           }`}
         >
           <BrandLogo onNavigate={closeMenu} />
@@ -131,7 +131,7 @@ export default function PrimaryHeader() {
 
             <button
               type="button"
-              className="inline-flex size-11 items-center justify-center border border-primary/10 text-primary lg:hidden"
+              className="inline-flex size-10 items-center justify-center border border-primary/10 text-primary lg:hidden"
               onClick={() => setIsOpen((open) => !open)}
               aria-expanded={isOpen}
               aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}

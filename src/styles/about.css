@@ -1,0 +1,145 @@
+@keyframes about-photo {
+  from {
+    clip-path: inset(18% 18% 18% 18%);
+    transform: scale(1.08);
+    opacity: 0;
+  }
+  to {
+    clip-path: inset(0);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes about-frame-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes about-frame-y {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes about-rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes about-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.7) rotate(-8deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes about-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes about-underline {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes about-ring {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(255 193 7 / 0.35);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgb(255 193 7 / 0);
+  }
+}
+
+.about-section.is-visible .about-photo {
+  animation: about-photo 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.about-section.is-visible .about-frame-x {
+  transform-origin: left;
+  animation: about-frame-x 0.9s 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.about-section.is-visible .about-frame-y {
+  transform-origin: bottom;
+  animation: about-frame-y 0.9s 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.about-section.is-visible .about-badge {
+  animation:
+    about-pop 0.8s 0.45s cubic-bezier(0.16, 1, 0.3, 1) both,
+    about-float 4.5s 1.3s ease-in-out infinite;
+}
+
+.about-section.is-visible .about-rise {
+  animation: about-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.about-section.is-visible .about-underline {
+  transform-origin: left;
+  animation: about-underline 0.8s 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.about-phone-ring {
+  animation: about-ring 2.4s ease-out infinite;
+}
+
+.about-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='160' height='80' viewBox='0 0 160 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 40c20-18 40-18 60 0s40 18 60 0 40-18 60 0' fill='none' stroke='%23122F2A' stroke-opacity='0.06' stroke-width='1.2'/%3E%3C/svg%3E");
+}
+
+.about-section .about-photo,
+.about-section .about-rise,
+.about-section .about-badge,
+.about-section .about-underline,
+.about-section .about-frame-x,
+.about-section .about-frame-y {
+  opacity: 0;
+}
+
+@media (max-width: 639px) {
+  .about-section.is-visible .about-badge {
+    animation: about-pop 0.8s 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-section.is-visible .about-photo,
+  .about-section.is-visible .about-frame-x,
+  .about-section.is-visible .about-frame-y,
+  .about-section.is-visible .about-badge,
+  .about-section.is-visible .about-rise,
+  .about-section.is-visible .about-underline,
+  .about-phone-ring {
+    animation: none;
+  }
+}
