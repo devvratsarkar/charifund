@@ -1,3 +1,11 @@
 .custom_container {
   @apply mx-auto w-[95%] sm:w-[90%] lg:w-[85%] px-4 sm:px-6;
 }
+
+button,
+a,
+[type='button'],
+[type='submit'],
+[role='button'] {
+  cursor: pointer;
+}

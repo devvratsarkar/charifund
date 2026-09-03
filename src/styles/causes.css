@@ -1,0 +1,246 @@
+@keyframes causes-rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes causes-line {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.causes-section.is-visible .causes-rise {
+  animation: causes-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.causes-section .causes-rise {
+  opacity: 0;
+}
+
+.causes-card {
+  position: relative;
+  display: flex;
+  min-height: 240px;
+  flex-direction: column;
+  background: #fff;
+  padding: 1.75rem 1.35rem 1.5rem;
+  border: 1px solid rgb(18 47 42 / 0.08);
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s ease;
+}
+
+@media (min-width: 640px) {
+  .causes-card {
+    min-height: 280px;
+    padding: 2.25rem 1.75rem 1.75rem;
+  }
+}
+
+.causes-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 2.5rem;
+  background: #ffc107;
+  transition: width 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.causes-section.is-visible .causes-card::before {
+  animation: causes-line 0.7s 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.causes-card:hover {
+  transform: translateY(-6px);
+  border-color: rgb(18 47 42 / 0.16);
+}
+
+.causes-card:hover::before {
+  width: 100%;
+}
+
+.causes-icon {
+  display: grid;
+  width: 3rem;
+  height: 3rem;
+  place-items: center;
+  border: 1px solid rgb(18 47 42 / 0.12);
+  color: #122f2a;
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease;
+}
+
+@media (min-width: 640px) {
+  .causes-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+}
+
+.causes-card:hover .causes-icon {
+  background: #122f2a;
+  border-color: #122f2a;
+  color: #ffc107;
+}
+
+.causes-card--education:hover .causes-icon {
+  background: #ffc107;
+  border-color: #ffc107;
+  color: #122f2a;
+}
+
+.causes-swiper,
+.causes-swiper .swiper-wrapper,
+.causes-swiper .swiper-slide {
+  height: auto;
+}
+
+.causes-swiper .swiper-slide {
+  height: auto;
+  padding: 0.5rem 0.2rem 1.6rem;
+}
+
+.causes-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  margin-top: 0.15rem;
+}
+
+.causes-nav-prev,
+.causes-nav-next {
+  position: static;
+  z-index: 10;
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  transform: none;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.causes-nav-prev {
+  background: #122f2a;
+  color: #fff;
+}
+
+.causes-nav-next {
+  background: #ffc107;
+  color: #122f2a;
+}
+
+.causes-nav-prev:hover,
+.causes-nav-next:hover {
+  transform: scale(1.06);
+}
+
+.causes-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.causes-pagination .swiper-pagination-bullet {
+  margin: 0;
+  width: 0.45rem;
+  height: 0.45rem;
+  background: #122f2a;
+  opacity: 0.22;
+  transition:
+    width 0.35s ease,
+    opacity 0.35s ease,
+    background-color 0.35s ease;
+}
+
+.causes-pagination .swiper-pagination-bullet-active {
+  width: 1.35rem;
+  border-radius: 999px;
+  background: #ffc107;
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .causes-card:hover {
+    transform: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .causes-slider {
+    padding: 0 3.25rem;
+  }
+
+  .causes-swiper .swiper-slide {
+    padding: 0.75rem 0.35rem 1.5rem;
+  }
+
+  .causes-toolbar {
+    margin-top: 0;
+  }
+
+  .causes-pagination {
+    display: none;
+  }
+
+  .causes-nav-prev,
+  .causes-nav-next {
+    position: absolute;
+    top: calc(50% - 0.5rem);
+    width: 2.75rem;
+    height: 2.75rem;
+    transform: translateY(-50%);
+  }
+
+  .causes-nav-prev {
+    left: 0;
+  }
+
+  .causes-nav-next {
+    right: 0;
+  }
+
+  .causes-nav-prev:hover,
+  .causes-nav-next:hover {
+    transform: translateY(-50%) scale(1.06);
+  }
+}
+
+@media (min-width: 1024px) {
+  .causes-slider {
+    padding: 0 2.5rem;
+  }
+
+  .causes-nav-prev {
+    left: -0.75rem;
+  }
+
+  .causes-nav-next {
+    right: -0.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .causes-section.is-visible .causes-rise,
+  .causes-section.is-visible .causes-card::before {
+    animation: none;
+  }
+}
