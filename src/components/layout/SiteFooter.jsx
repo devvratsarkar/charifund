@@ -23,12 +23,12 @@ export default function SiteFooter() {
         <Reveal>
           <div className="flex items-center gap-3">
             <span className="grid size-11 place-items-center border border-secondary/70 bg-primary">
-              <span className="font-display text-xl font-extrabold text-secondary">C</span>
+              <span className="font-display text-xl font-extrabold text-secondary">M</span>
             </span>
-            <span className="font-serif text-2xl text-white">Charifund</span>
+            <span className="font-serif text-2xl text-white">Manavsewa Trust</span>
           </div>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/65">
-            Charifund exists to educate children, heal families, and restore
+            Manavsewa Trust exists to educate children, heal families, and restore
             dignity through consistent community care.
           </p>
         </Reveal>
@@ -90,7 +90,7 @@ export default function SiteFooter() {
 
       <div className="border-t border-white/10">
         <p className="custom_container py-5 text-center text-xs text-white/45">
-          © {new Date().getFullYear()} Charifund Charitable Trust. All rights reserved.
+          © {new Date().getFullYear()} Manavsewa Trust. All rights reserved.
         </p>
       </div>
     </footer>

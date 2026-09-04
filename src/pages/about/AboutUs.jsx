@@ -22,7 +22,7 @@ const VALUES = [
   },
   {
     title: 'Community hands',
-    copy: 'Local volunteers, teachers, and families shape every Charifund project.',
+    copy: 'Local volunteers, teachers, and families shape every Manavsewa Trust project.',
     Icon: FaHandsHelping,
   },
 ]
@@ -32,7 +32,7 @@ export default function AboutUsPage() {
     <>
       <PageHero
         eyebrow="Our story"
-        title="About Charifund"
+        title="About Manavsewa Trust"
         copy="We exist so children can learn, families can heal, and communities can stand with dignity."
         image="/images/banner/slide-1.png"
       />

@@ -14,7 +14,7 @@ const SLIDES = [
   {
     eyebrow: 'Give a helping hand for a child',
     title: 'Lend a helping hand to those who need it',
-    copy: 'Join Charifund in creating safer homes, stronger classrooms, and brighter futures.',
+    copy: 'Join Manavsewa Trust in creating safer homes, stronger classrooms, and brighter futures.',
     image: '/images/banner/slide-1.png',
     effect: 'curtain',
     textEffect: 'words',
@@ -135,7 +135,7 @@ export default function HomeBanner() {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       aria-roledescription="carousel"
-      aria-label="Charifund highlights"
+      aria-label="Manavsewa Trust highlights"
     >
       <div className="absolute inset-0">
         {SLIDES.map((item, index) => {

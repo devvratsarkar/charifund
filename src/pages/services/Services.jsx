@@ -32,7 +32,7 @@ export default function ServicesPage() {
         <div className="custom_container">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="text-[12px] font-bold uppercase tracking-[0.22em] text-secondary">
-              The Charifund way
+              The Manavsewa way
             </p>
             <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-primary sm:text-5xl">
               Four steps from need to hope

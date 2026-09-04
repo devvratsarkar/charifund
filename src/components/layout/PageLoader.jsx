@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import '../../styles/loader.css'
 
-const WORD = 'CHARIFUND'
+const WORD = 'MANAVSEWA'
 const INTRO_MS = 2100
 const EXIT_MS = 900
 const ROUTE_MS = 420
@@ -63,7 +63,7 @@ export default function PageLoader() {
       }`}
       role="status"
       aria-live="polite"
-      aria-label="Loading Charifund"
+      aria-label="Loading Manavsewa Trust"
     >
       <div className="page-loader-panel page-loader-panel--top" />
       <div className="page-loader-panel page-loader-panel--bottom" />
@@ -83,11 +83,11 @@ export default function PageLoader() {
                 />
               </svg>
               <span className="page-loader-mark font-display text-3xl font-extrabold text-secondary">
-                C
+                M
               </span>
             </span>
 
-            <p className="page-loader-word mt-6 font-serif text-2xl tracking-[0.22em] text-white sm:text-3xl">
+            <p className="page-loader-word mt-6 font-serif text-xl tracking-[0.18em] text-white sm:text-3xl">
               {WORD.split('').map((letter, index) => (
                 <span key={`${letter}-${index}`} style={{ animationDelay: `${520 + index * 55}ms` }}>
                   {letter}
@@ -97,7 +97,7 @@ export default function PageLoader() {
 
             <span className="page-loader-line mt-5 block h-px w-24 bg-secondary" />
             <p className="page-loader-sub mt-4 text-[10px] font-bold uppercase text-white/55">
-              Charitable Trust
+              Trust
             </p>
           </div>
         </div>

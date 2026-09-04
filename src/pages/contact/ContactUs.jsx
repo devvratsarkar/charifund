@@ -21,7 +21,7 @@ export default function ContactUsPage() {
     <>
       <PageHero
         eyebrow="We are listening"
-        title="Contact Charifund"
+        title="Contact Manavsewa Trust"
         copy="Ask about a program, volunteer, or start a monthly gift. A teammate will write back."
         image="/images/banner/slide-3.png"
       />
@@ -67,7 +67,7 @@ export default function ContactUsPage() {
                   We received your message
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-black">
-                  A Charifund teammate will reply shortly. Until then, thank you for standing with us.
+                  A Manavsewa Trust teammate will reply shortly. Until then, thank you for standing with us.
                 </p>
               </div>
             ) : (

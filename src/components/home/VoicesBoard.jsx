@@ -14,7 +14,7 @@ const VOICES = [
     wide: false,
   },
   {
-    quote: 'I give a little each month. Charifund writes back with names, not slogans.',
+    quote: 'I give a little each month. Manavsewa Trust writes back with names, not slogans.',
     name: 'Priya Menon',
     role: 'Monthly donor, Bengaluru',
     wide: false,

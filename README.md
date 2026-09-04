@@ -1,6 +1,6 @@
-# Charifund
+# Manavsewa Trust
 
-Charifund is a React + Vite web app for charity fundraising.
+Manavsewa Trust is a React + Vite web app for charity fundraising.
 
 ## Scripts
 
