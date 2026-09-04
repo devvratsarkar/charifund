@@ -96,6 +96,24 @@ function HeartBadge() {
 
 export default function AboutSection() {
   const [sectionRef, visible] = useInView()
+  const photoRef = useRef(null)
+
+  useEffect(() => {
+    const photo = photoRef.current
+    if (!photo || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return undefined
+    }
+
+    const onScroll = () => {
+      const rect = photo.getBoundingClientRect()
+      const offset = (rect.top - window.innerHeight * 0.35) * -0.12
+      photo.style.transform = `translate3d(0, ${offset}px, 0) scale(1.08)`
+    }
+
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
     <section
@@ -104,6 +122,8 @@ export default function AboutSection() {
         visible ? 'is-visible' : ''
       }`}
     >
+      <span className="cf-orb -left-8 top-16 size-36 bg-secondary/15" />
+      <span className="cf-orb right-10 bottom-10 size-28 bg-primary/5" style={{ animationDelay: '1s' }} />
       <div className="custom_container grid items-center gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-20">
         <div className="relative mx-auto w-full max-w-xl">
           <div className="relative overflow-hidden rounded-2xl bg-cream p-3 sm:rounded-[2rem] sm:p-6">
@@ -111,9 +131,10 @@ export default function AboutSection() {
             <span className="about-frame-x absolute bottom-0 left-0 h-1 w-full origin-left bg-secondary sm:h-1.5" />
             <div className="overflow-hidden rounded-xl sm:rounded-[1.4rem]">
               <img
+                ref={photoRef}
                 src="/images/banner/slide-1.png"
                 alt="Children gathering outdoors"
-                className="about-photo h-64 w-full object-cover sm:h-[420px] lg:h-[520px]"
+                className="about-photo h-64 w-full object-cover will-change-transform sm:h-[420px] lg:h-[520px]"
               />
             </div>
           </div>

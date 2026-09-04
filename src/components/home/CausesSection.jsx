@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay, Navigation, Pagination } from 'swiper/modules'
+import { Autoplay, Pagination } from 'swiper/modules'
 import { FiHeart, FiBookOpen, FiCoffee } from 'react-icons/fi'
 import { HiArrowLeft, HiArrowRight, HiArrowNarrowRight } from 'react-icons/hi'
 import { FaHandHoldingHeart } from 'react-icons/fa'
@@ -76,14 +76,16 @@ function CauseCard({ title, copy, Icon, tone }) {
 
 export default function CausesSection() {
   const [sectionRef, visible] = useInView()
+  const swiperRef = useRef(null)
 
   return (
     <section
       ref={sectionRef}
-      className={`causes-section relative bg-cream py-12 sm:py-16 lg:py-24 ${
+      className={`causes-section relative overflow-x-hidden bg-cream py-12 sm:py-16 lg:py-24 ${
         visible ? 'is-visible' : ''
       }`}
     >
+      <span className="cf-orb -right-10 top-8 size-40 bg-secondary/20" />
       <div className="custom_container">
         <div className="mx-auto max-w-3xl text-center">
           <p
@@ -112,38 +114,47 @@ export default function CausesSection() {
         <div className="causes-rise causes-slider relative mt-8 sm:mt-14" style={{ animationDelay: '380ms' }}>
           <Swiper
             className="causes-swiper"
-            modules={[Autoplay, Navigation, Pagination]}
+            modules={[Autoplay, Pagination]}
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper
+            }}
             loop
             speed={800}
             spaceBetween={16}
             slidesPerView={1}
             autoplay={{ delay: 4200, disableOnInteraction: false, pauseOnMouseEnter: true }}
-            navigation={{
-              prevEl: '.causes-nav-prev',
-              nextEl: '.causes-nav-next',
-            }}
             pagination={{
               el: '.causes-pagination',
               clickable: true,
             }}
             breakpoints={{
               640: { slidesPerView: 2, spaceBetween: 18 },
-              1024: { slidesPerView: 3, spaceBetween: 24, loop: false },
+              1024: { slidesPerView: 3, spaceBetween: 24 },
             }}
           >
-            {CAUSES.map((cause) => (
-              <SwiperSlide key={cause.title}>
+            {[...CAUSES, ...CAUSES].map((cause, index) => (
+              <SwiperSlide key={`${cause.title}-${index}`}>
                 <CauseCard {...cause} />
               </SwiperSlide>
             ))}
           </Swiper>
 
           <div className="causes-toolbar">
-            <button type="button" className="causes-nav-prev" aria-label="Previous cause">
+            <button
+              type="button"
+              className="causes-nav-prev"
+              aria-label="Previous cause"
+              onClick={() => swiperRef.current?.slidePrev()}
+            >
               <HiArrowLeft className="size-4 sm:size-5" />
             </button>
             <div className="causes-pagination" />
-            <button type="button" className="causes-nav-next" aria-label="Next cause">
+            <button
+              type="button"
+              className="causes-nav-next"
+              aria-label="Next cause"
+              onClick={() => swiperRef.current?.slideNext()}
+            >
               <HiArrowRight className="size-4 sm:size-5" />
             </button>
           </div>

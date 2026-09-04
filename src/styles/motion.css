@@ -1,0 +1,209 @@
+@keyframes cf-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 48px, 0);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    filter: blur(0);
+  }
+}
+
+@keyframes cf-left {
+  from {
+    opacity: 0;
+    transform: translate3d(-56px, 0, 0);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    filter: blur(0);
+  }
+}
+
+@keyframes cf-right {
+  from {
+    opacity: 0;
+    transform: translate3d(56px, 0, 0);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    filter: blur(0);
+  }
+}
+
+@keyframes cf-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.88);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes cf-clip {
+  from {
+    opacity: 0;
+    clip-path: inset(12% 12% 12% 12%);
+    transform: scale(1.08);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0);
+    transform: scale(1);
+  }
+}
+
+@keyframes cf-page {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 28px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes cf-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes cf-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0);
+  }
+}
+
+@keyframes cf-sheen {
+  from {
+    transform: translateX(-60%);
+  }
+  to {
+    transform: translateX(160%);
+  }
+}
+
+@keyframes cf-spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes cf-ken {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1.18);
+  }
+}
+
+.cf-reveal {
+  opacity: 0;
+}
+
+.cf-reveal.is-in {
+  animation-duration: 1s;
+  animation-delay: var(--reveal-delay, 0ms);
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-fill-mode: both;
+}
+
+.cf-reveal--up.is-in {
+  animation-name: cf-up;
+}
+
+.cf-reveal--left.is-in {
+  animation-name: cf-left;
+}
+
+.cf-reveal--right.is-in {
+  animation-name: cf-right;
+}
+
+.cf-reveal--scale.is-in {
+  animation-name: cf-scale;
+}
+
+.cf-reveal--clip.is-in {
+  animation-name: cf-clip;
+}
+
+.cf-page {
+  animation: cf-page 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.cf-progress {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 80ms linear;
+}
+
+.cf-marquee-track {
+  animation: cf-marquee 28s linear infinite;
+}
+
+.cf-float {
+  animation: cf-float 5.5s ease-in-out infinite;
+}
+
+.cf-orb {
+  pointer-events: none;
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(2px);
+  animation: cf-float 7s ease-in-out infinite;
+}
+
+.cf-cta-sheen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgb(255 255 255 / 0.18) 48%, transparent 66%);
+  animation: cf-sheen 4.8s ease-in-out infinite;
+}
+
+.cf-spin {
+  animation: cf-spin-slow 22s linear infinite;
+}
+
+.cf-hero-photo {
+  animation: cf-ken 18s ease-in-out infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cf-reveal,
+  .cf-reveal.is-in,
+  .cf-page,
+  .cf-marquee-track,
+  .cf-float,
+  .cf-orb,
+  .cf-cta-sheen::after,
+  .cf-spin,
+  .cf-hero-photo {
+    animation: none !important;
+    opacity: 1;
+    filter: none;
+    transform: none;
+    clip-path: none;
+  }
+}

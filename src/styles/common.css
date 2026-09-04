@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 .custom_container {
   @apply mx-auto w-[95%] sm:w-[90%] lg:w-[85%] px-4 sm:px-6;
 }

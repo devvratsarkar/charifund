@@ -138,10 +138,11 @@ export default function EventsSection() {
   return (
     <section
       ref={sectionRef}
-      className={`events-section relative bg-white py-12 sm:py-16 lg:py-24 ${
+      className={`events-section relative overflow-x-hidden bg-white py-12 sm:py-16 lg:py-24 ${
         visible ? 'is-visible' : ''
       }`}
     >
+      <span className="cf-orb -left-8 top-12 size-36 bg-secondary/15" />
       <div className="custom_container">
         <div className="mx-auto max-w-3xl text-center">
           <p

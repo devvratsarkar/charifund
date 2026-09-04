@@ -1,0 +1,105 @@
+::selection {
+  background: #ffc107;
+  color: #122f2a;
+}
+
+body {
+  background-color: var(--color-cream);
+}
+
+body::before {
+  content: '';
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.cf-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #ffc107;
+}
+
+.cf-kicker::before {
+  content: '';
+  width: 1.75rem;
+  height: 1px;
+  background: currentColor;
+}
+
+.cf-index {
+  font-family: var(--font-serif);
+  font-size: 0.78rem;
+  font-style: italic;
+  letter-spacing: 0.08em;
+  color: rgb(18 47 42 / 0.35);
+}
+
+@keyframes cf-draw-line {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.cf-rule {
+  height: 1px;
+  transform-origin: left center;
+  background: rgb(18 47 42 / 0.12);
+}
+
+.cf-reveal.is-in .cf-rule {
+  animation: cf-draw-line 0.9s 0.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.cf-quote-mark {
+  font-family: var(--font-serif);
+  font-size: clamp(5rem, 12vw, 9rem);
+  font-weight: 500;
+  line-height: 0.7;
+  color: #ffc107;
+}
+
+.cf-path-line {
+  background: linear-gradient(90deg, #ffc107, rgb(255 193 7 / 0.15));
+}
+
+.cf-trust-item {
+  position: relative;
+}
+
+.cf-trust-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 20%;
+  right: 0;
+  width: 1px;
+  height: 60%;
+  background: rgb(255 255 255 / 0.12);
+}
+
+@media (max-width: 639px) {
+  .cf-trust-item:not(:last-child)::after {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cf-reveal.is-in .cf-rule {
+    animation: none;
+  }
+}

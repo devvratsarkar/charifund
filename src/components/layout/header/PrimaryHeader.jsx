@@ -55,7 +55,6 @@ export default function PrimaryHeader() {
 
   return (
     <header className="sticky top-0 z-50">
-      <div className="h-0.5 bg-secondary" />
 
       <div
         className={`overflow-hidden bg-primary text-white/80 transition-all duration-300 ${

@@ -1,11 +1,13 @@
 @keyframes causes-rise {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(52px);
+    filter: blur(8px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
   }
 }
 
@@ -34,6 +36,7 @@
   background: #fff;
   padding: 1.75rem 1.35rem 1.5rem;
   border: 1px solid rgb(18 47 42 / 0.08);
+  box-shadow: none;
   transition:
     transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
     border-color 0.4s ease;
@@ -64,6 +67,7 @@
 .causes-card:hover {
   transform: translateY(-6px);
   border-color: rgb(18 47 42 / 0.16);
+  box-shadow: none;
 }
 
 .causes-card:hover::before {
