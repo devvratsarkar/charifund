@@ -98,8 +98,36 @@ body::before {
   }
 }
 
+.gift-tile {
+  transition: background-color 0.4s ease;
+}
+
+.gift-tile:hover {
+  background: #f6f3ec;
+}
+
+.voice-card {
+  transition: border-color 0.4s ease;
+}
+
+.voice-card:hover {
+  border-color: rgb(255 193 7 / 0.55);
+}
+
+.volunteer-row {
+  transition: padding-left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.volunteer-row:hover {
+  padding-left: 0.6rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .cf-reveal.is-in .cf-rule {
     animation: none;
+  }
+
+  .volunteer-row:hover {
+    padding-left: 0;
   }
 }
