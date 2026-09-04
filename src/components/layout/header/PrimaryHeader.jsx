@@ -1,20 +1,26 @@
 import { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom'
-import { ArrowRightIcon, MailIcon, PhoneIcon } from '../../ui/AllSVG'
+import { NavLink, useLocation } from 'react-router-dom'
+import { FiMail, FiMapPin, FiPhone } from 'react-icons/fi'
+import { HiArrowNarrowRight } from 'react-icons/hi'
 import BrandLogo from './BrandLogo'
 import PrimaryMenu from './PrimaryMenu'
 import { getContactPageRoute } from '../../../routes/routes'
 
 export default function PrimaryHeader() {
+  const { pathname } = useLocation()
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 8)
+    const onScroll = () => setIsScrolled(window.scrollY > 12)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  useEffect(() => {
+    setIsOpen(false)
+  }, [pathname])
 
   useEffect(() => {
     const onKeyDown = (event) => {
@@ -41,139 +47,145 @@ export default function PrimaryHeader() {
 
   const closeMenu = () => setIsOpen(false)
 
-  const desktopItemClassName = ({ isActive }) =>
-    `relative px-1 pb-1.5 text-[15px] font-semibold tracking-wide transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-center after:scale-x-0 after:bg-secondary after:transition-transform after:duration-300 ${
-      isActive
-        ? 'text-primary after:scale-x-100'
-        : 'text-black hover:text-primary hover:after:scale-x-100'
-    }`
-
-  const mobileItemClassName = ({ isActive }) =>
-    `flex items-center justify-between border-b border-primary/8 py-4 text-[17px] font-semibold tracking-wide ${
-      isActive ? 'text-primary' : 'text-black'
-    }`
-
   return (
-    <header className="sticky top-0 z-50">
+    <header className={`site-header ${isScrolled ? 'is-scrolled' : ''}`}>
+      <div className="relative z-20">
+        <div className="site-masthead">
+          <div className="custom_container flex h-10 min-w-0 items-center justify-between gap-3 text-[11px] font-semibold tracking-[0.06em]">
+            <div className="flex min-w-0 items-center">
+              <span className="hidden items-center gap-2 text-white/70 md:inline-flex">
+                <FiMapPin className="size-3.5 shrink-0 text-secondary" />
+                New Delhi
+              </span>
+              <span className="mx-4 hidden h-3 w-px bg-white/15 md:block" />
+              <a
+                href="mailto:info@icchashaktitrust.org"
+                className="site-mast-link inline-flex min-w-0 truncate"
+              >
+                <FiMail className="size-3.5 shrink-0 text-secondary" />
+                <span className="truncate">info@icchashaktitrust.org</span>
+              </a>
+              <span className="mx-4 hidden h-3 w-px bg-white/15 sm:block" />
+              <a href="tel:01132618471" className="site-mast-link hidden sm:inline-flex shrink-0">
+                <FiPhone className="size-3.5 shrink-0 text-secondary" />
+                011-3261-8471
+              </a>
+            </div>
 
-      <div
-        className={`overflow-hidden bg-primary text-white/80 transition-all duration-300 ${
-          isScrolled ? 'max-h-0 opacity-0' : 'max-h-12 opacity-100'
-        }`}
-      >
-        <div className="custom_container flex h-10 items-center justify-between gap-3 text-[11px] font-semibold tracking-[0.08em]">
-          <div className="flex min-w-0 items-center gap-0">
-            <a
-              href="mailto:info@icchashaktitrust.org"
-              className="flex min-w-0 items-center gap-2 truncate transition-colors hover:text-secondary"
-            >
-              <MailIcon className="size-3.5 shrink-0 text-secondary" />
-              <span className="truncate">info@icchashaktitrust.org</span>
-            </a>
-            <span className="mx-4 hidden h-3 w-px bg-white/20 sm:block" />
-            <a
-              href="tel:01132618471"
-              className="hidden items-center gap-2 sm:flex transition-colors hover:text-secondary"
-            >
-              <PhoneIcon className="size-3.5 shrink-0 text-secondary" />
-              011-3261-8471
-            </a>
+            <div className="flex shrink-0 items-center gap-2.5">
+              <span className="site-chip hidden sm:inline-flex">80G</span>
+              <p className="hidden text-white/50 lg:block">
+                NITI Aayog DL/2023/0375461
+                <span className="mx-2.5 text-white/20">·</span>
+                Reg. 705
+              </p>
+            </div>
           </div>
+        </div>
 
-          <p className="hidden text-white/55 lg:block">
-            NITI Aayog DL/2023/0375461
-            <span className="mx-3 text-white/25">|</span>
-            Reg. No. 705
-            <span className="mx-3 text-white/25">|</span>
-            PAN AACTI2510B
-          </p>
+        <div className="site-header-bar">
+          <div
+            className={`custom_container flex items-center justify-between gap-3 transition-[height] duration-300 lg:grid lg:grid-cols-[auto_1fr_auto] lg:gap-8 ${
+              isScrolled ? 'h-16' : 'h-16 sm:h-20'
+            }`}
+          >
+            <BrandLogo onNavigate={closeMenu} />
+
+            <PrimaryMenu
+              className="hidden items-center justify-center gap-8 lg:flex xl:gap-10"
+              itemClassName={({ isActive }) =>
+                `site-nav-link ${isActive ? 'is-active' : ''}`
+              }
+            />
+
+            <div className="flex shrink-0 items-center gap-3 sm:gap-4">
+              <a href="tel:01132618471" className="site-call">
+                <span className="site-call-icon">
+                  <FiPhone className="size-4" />
+                </span>
+                <span className="flex flex-col leading-none">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-black">
+                    Call us
+                  </span>
+                  <span className="mt-1.5 text-sm font-bold text-primary">
+                    011-3261-8471
+                  </span>
+                </span>
+              </a>
+
+              <NavLink to={getContactPageRoute()} className="site-donate">
+                Donate Now
+                <HiArrowNarrowRight className="size-3.5" />
+              </NavLink>
+
+              <button
+                type="button"
+                className={`site-menu-btn ${isOpen ? 'is-open' : ''}`}
+                onClick={() => setIsOpen((open) => !open)}
+                aria-expanded={isOpen}
+                aria-controls="site-overlay"
+                aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              >
+                <span className="relative block h-3.5 w-5">
+                  <span
+                    className={`absolute left-0 h-px w-full bg-current transition-all duration-300 ${
+                      isOpen ? 'top-1.5 rotate-45' : 'top-0'
+                    }`}
+                  />
+                  <span
+                    className={`absolute left-0 top-1.5 h-px w-full bg-current transition-opacity duration-300 ${
+                      isOpen ? 'opacity-0' : 'opacity-100'
+                    }`}
+                  />
+                  <span
+                    className={`absolute left-0 h-px w-full bg-current transition-all duration-300 ${
+                      isOpen ? 'top-1.5 -rotate-45' : 'top-3'
+                    }`}
+                  />
+                </span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
       <div
-        className={`border-b border-primary/8 bg-white/90 backdrop-blur-xl transition-[height,box-shadow] duration-300 ${
-          isScrolled ? 'shadow-[0_12px_40px_rgba(18,47,42,0.08)]' : ''
-        }`}
+        id="site-overlay"
+        className={`site-overlay lg:hidden ${isOpen ? 'is-open' : ''}`}
       >
-        <div
-          className={`custom_container grid grid-cols-[1fr_auto] items-center gap-3 transition-[height] duration-300 lg:grid-cols-[auto_1fr_auto] lg:gap-6 ${
-            isScrolled ? 'h-16 sm:h-18' : 'h-16 sm:h-22'
-          }`}
-        >
-          <BrandLogo onNavigate={closeMenu} />
-
+        <div className="custom_container relative flex min-h-full flex-col justify-between py-8">
           <PrimaryMenu
-            className="hidden items-center justify-center gap-9 lg:flex"
-            itemClassName={desktopItemClassName}
+            className="flex flex-col"
+            itemClassName={({ isActive }) =>
+              `site-overlay-link ${isActive ? 'is-active' : ''}`
+            }
+            onNavigate={closeMenu}
           />
 
-          <div className="flex items-center gap-5">
-            <a
-              href="tel:01132618471"
-              className="hidden flex-col leading-none xl:flex"
-            >
-              <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-black">
-                Call us
-              </span>
-              <span className="mt-1.5 text-sm font-bold text-primary">
+          <div>
+            <div className="grid gap-3 text-sm text-white/70 sm:grid-cols-2">
+              <a
+                href="mailto:info@icchashaktitrust.org"
+                className="inline-flex items-center gap-2 hover:text-secondary"
+              >
+                <FiMail className="size-4 text-secondary" />
+                info@icchashaktitrust.org
+              </a>
+              <a
+                href="tel:01132618471"
+                className="inline-flex items-center gap-2 hover:text-secondary"
+              >
+                <FiPhone className="size-4 text-secondary" />
                 011-3261-8471
-              </span>
-            </a>
-
-            <NavLink
-              to={getContactPageRoute()}
-              className="group hidden items-center gap-2 bg-secondary px-6 py-3 text-[11px] font-extrabold uppercase tracking-[0.18em] text-primary transition-colors duration-300 hover:bg-primary hover:text-white sm:inline-flex"
-            >
-              Donate Now
-              <ArrowRightIcon className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
-            </NavLink>
-
-            <button
-              type="button"
-              className="inline-flex size-10 items-center justify-center border border-primary/10 text-primary lg:hidden"
-              onClick={() => setIsOpen((open) => !open)}
-              aria-expanded={isOpen}
-              aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
-            >
-              <span className="relative block h-3.5 w-5">
-                <span
-                  className={`absolute left-0 h-px w-full bg-current transition-all duration-300 ${
-                    isOpen ? 'top-1.5 rotate-45' : 'top-0'
-                  }`}
-                />
-                <span
-                  className={`absolute left-0 top-1.5 h-px w-full bg-current transition-opacity duration-300 ${
-                    isOpen ? 'opacity-0' : 'opacity-100'
-                  }`}
-                />
-                <span
-                  className={`absolute left-0 h-px w-full bg-current transition-all duration-300 ${
-                    isOpen ? 'top-1.5 -rotate-45' : 'top-3'
-                  }`}
-                />
-              </span>
-            </button>
-          </div>
-        </div>
-
-        <div
-          className={`lg:hidden overflow-hidden border-t border-primary/8 bg-cream transition-all duration-300 ${
-            isOpen ? 'max-h-105 opacity-100' : 'max-h-0 opacity-0'
-          }`}
-        >
-          <div className="custom_container py-2">
-            <PrimaryMenu
-              className="flex flex-col"
-              itemClassName={mobileItemClassName}
-              onNavigate={closeMenu}
-            />
+              </a>
+            </div>
             <NavLink
               to={getContactPageRoute()}
               onClick={closeMenu}
-              className="mt-6 mb-4 inline-flex w-full items-center justify-center gap-2 bg-secondary px-6 py-3.5 text-[12px] font-extrabold uppercase tracking-[0.18em] text-primary"
+              className="site-overlay-donate"
             >
               Donate Now
-              <ArrowRightIcon className="size-3.5" />
+              <HiArrowNarrowRight className="size-4" />
             </NavLink>
           </div>
         </div>

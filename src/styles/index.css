@@ -3,6 +3,7 @@
 @import "./common.css";
 @import "./motion.css";
 @import "./premium.css";
+@import "./header.css";
 
 @theme {
   --color-primary: #122F2A;
@@ -17,10 +18,18 @@
 
 html {
   font-family: var(--font-sans);
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
   min-width: 320px;
+  max-width: 100%;
+  overflow-x: hidden;
   color: var(--color-black);
+}
+
+#root {
+  max-width: 100%;
+  overflow-x: hidden;
 }

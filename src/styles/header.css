@@ -1,0 +1,324 @@
+.site-header {
+  --header-offset: 6.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .site-header {
+    --header-offset: 7.5rem;
+  }
+}
+
+.site-header.is-scrolled {
+  --header-offset: 4rem;
+}
+
+.site-masthead {
+  overflow: hidden;
+  background: #0d221e;
+  color: rgb(255 255 255 / 0.78);
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.3s ease;
+}
+
+.site-header.is-scrolled .site-masthead {
+  max-height: 0;
+  opacity: 0;
+}
+
+.site-header:not(.is-scrolled) .site-masthead {
+  max-height: 3rem;
+  opacity: 1;
+}
+
+.site-mast-link {
+  min-width: 0;
+  align-items: center;
+  gap: 0.45rem;
+  transition: color 0.25s ease;
+}
+
+.site-mast-link:hover {
+  color: #ffc107;
+}
+
+.site-chip {
+  align-items: center;
+  border: 1px solid rgb(255 193 7 / 0.45);
+  padding: 0.2rem 0.55rem;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffc107;
+}
+
+.site-header-bar {
+  position: relative;
+  z-index: 20;
+  border-bottom: 1px solid rgb(18 47 42 / 0.08);
+  background: rgb(246 243 236 / 0.88);
+  backdrop-filter: blur(18px);
+  transition: box-shadow 0.35s ease, background-color 0.35s ease;
+}
+
+.site-header.is-scrolled .site-header-bar {
+  background: rgb(255 255 255 / 0.92);
+  box-shadow: 0 16px 48px rgb(18 47 42 / 0.1);
+}
+
+.site-header-bar::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(255 193 7 / 0.55) 18%,
+    rgb(255 193 7 / 0.55) 82%,
+    transparent
+  );
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+}
+
+.site-header.is-scrolled .site-header-bar::after {
+  opacity: 0.85;
+}
+
+.site-nav-link {
+  position: relative;
+  display: inline-flex;
+  padding-bottom: 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--color-black);
+  transition: color 0.3s ease;
+}
+
+.site-nav-link::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: #ffc107;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.site-nav-link:hover,
+.site-nav-link.is-active {
+  color: var(--color-primary);
+}
+
+.site-nav-link:hover::after,
+.site-nav-link.is-active::after {
+  transform: scaleX(1);
+}
+
+.site-call {
+  display: none;
+  align-items: center;
+  gap: 0.75rem;
+  padding-right: 1.1rem;
+  border-right: 1px solid rgb(18 47 42 / 0.1);
+}
+
+.site-call-icon {
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  border: 1px solid rgb(255 193 7 / 0.55);
+  color: var(--color-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.site-call:hover .site-call-icon {
+  background: var(--color-primary);
+  color: #ffc107;
+}
+
+.site-donate {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  background: #ffc107;
+  padding: 0.8rem 1.2rem;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.site-donate svg {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.site-donate:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.site-donate:hover svg {
+  transform: translateX(2px);
+}
+
+.site-menu-btn {
+  display: inline-flex;
+  width: 2.6rem;
+  height: 2.6rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(255 193 7 / 0.55);
+  background: var(--color-primary);
+  color: #ffc107;
+  transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.site-menu-btn:hover,
+.site-menu-btn.is-open {
+  border-color: #ffc107;
+  background: #ffc107;
+  color: var(--color-primary);
+}
+
+.site-overlay {
+  position: fixed;
+  top: var(--header-offset);
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  background: #0d221e;
+  color: #fff;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease, top 0.35s ease;
+}
+
+.site-overlay::before {
+  content: 'Manavsewa Trust';
+  position: absolute;
+  top: 12%;
+  right: 4%;
+  font-family: var(--font-serif);
+  font-size: 0.72rem;
+  font-style: italic;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgb(255 255 255 / 0.1);
+  writing-mode: vertical-rl;
+}
+
+.site-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.site-overlay-link {
+  display: flex;
+  align-items: baseline;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid rgb(255 255 255 / 0.08);
+  font-family: var(--font-serif);
+  font-size: clamp(1.7rem, 7vw, 2.5rem);
+  line-height: 1.15;
+  color: rgb(255 255 255 / 0.88);
+  transform: translate3d(0, 16px, 0);
+  opacity: 0;
+  transition: color 0.3s ease;
+}
+
+.site-overlay.is-open .site-overlay-link {
+  animation: cf-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.site-overlay.is-open .site-overlay-link:nth-child(1) {
+  animation-delay: 60ms;
+}
+
+.site-overlay.is-open .site-overlay-link:nth-child(2) {
+  animation-delay: 120ms;
+}
+
+.site-overlay.is-open .site-overlay-link:nth-child(3) {
+  animation-delay: 180ms;
+}
+
+.site-overlay.is-open .site-overlay-link:nth-child(4) {
+  animation-delay: 240ms;
+}
+
+.site-overlay-link:hover,
+.site-overlay-link.is-active {
+  color: #ffc107;
+}
+
+.site-overlay-donate {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  background: #ffc107;
+  padding: 0.95rem 1.15rem;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+@media (min-width: 640px) {
+  .site-donate {
+    display: inline-flex;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-overlay,
+  .site-menu-btn {
+    display: none;
+  }
+}
+
+@media (min-width: 1280px) {
+  .site-call {
+    display: flex;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-masthead,
+  .site-header-bar,
+  .site-overlay,
+  .site-nav-link::after,
+  .site-donate svg {
+    transition: none;
+  }
+
+  .site-overlay.is-open .site-overlay-link {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
