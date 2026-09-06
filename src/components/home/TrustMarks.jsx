@@ -1,9 +1,10 @@
 import Reveal from '../ui/Reveal'
+import { ORG } from '../../data/site'
 
 const MARKS = [
-  { label: 'NITI Aayog', value: 'DL/2023/0375461' },
-  { label: 'Registration', value: 'Reg. No. 705' },
-  { label: 'PAN', value: 'AACTI2510B' },
+  { label: 'NITI Aayog', value: ORG.nitiAayog },
+  { label: 'Registration', value: `Reg. No. ${ORG.regNo}` },
+  { label: 'PAN', value: ORG.pan },
   { label: 'Tax benefit', value: '80G eligible' },
 ]
 

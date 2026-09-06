@@ -3,9 +3,9 @@ import { useInView } from '../../hooks/useInView'
 import Reveal from '../ui/Reveal'
 
 const FIGURES = [
-  { value: 6472, suffix: '', label: 'Active volunteers', note: 'Hands on the ground' },
-  { value: 38768, prefix: '$', suffix: '', label: 'Given this season', note: 'From monthly donors' },
-  { value: 119, suffix: 'k+', label: 'Lives reached', note: 'Across our programs' },
+  { value: 6472, suffix: '', label: 'Join our team', note: 'Hands on the ground' },
+  { value: 38768, prefix: '$', suffix: '', label: 'Donate us', note: 'From monthly donors' },
+  { value: 1193210, prefix: '', suffix: '', label: 'Total fund raised', note: 'Across our programs' },
 ]
 
 function useCountUp(target, active, duration = 1800) {

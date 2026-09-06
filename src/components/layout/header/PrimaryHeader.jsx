@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { FiMail, FiPhone } from 'react-icons/fi'
 import { HiArrowNarrowRight } from 'react-icons/hi'
 import BrandLogo from './BrandLogo'
 import PrimaryMenu from './PrimaryMenu'
-import { getContactPageRoute } from '../../../routes/routes'
+import { ORG } from '../../../data/site'
+import { RAZORPAY_URL } from '../../../routes/routes'
 
 export default function PrimaryHeader() {
   const { pathname } = useLocation()
@@ -51,34 +52,22 @@ export default function PrimaryHeader() {
     <header className={`site-header ${isScrolled ? 'is-scrolled' : ''}`}>
       <div className="relative z-20">
         <div className="site-masthead">
-          <div className="custom_container flex h-10 min-w-0 items-center justify-between gap-3 text-[11px] font-semibold tracking-[0.06em]">
-            <p className="min-w-0 truncate uppercase tracking-[0.12em] text-white/80">
-              Manav Sewa Health and Education Trust
+          <div className="site-masthead-inner custom_container">
+            <p className="site-mast-ids">
+              <span className="site-chip">Reg. No. {ORG.regNo}</span>
+              <span className="site-mast-dot" />
+              <span>PAN {ORG.pan}</span>
+              <span className="site-mast-dot" />
+              <span>NITI Aayog {ORG.nitiAayog}</span>
             </p>
-
-            <div className="flex shrink-0 items-center">
-              <span className="site-chip hidden md:inline-flex">Reg. No. 185</span>
-              <span className="mx-3 hidden h-3 w-px bg-white/15 lg:block" />
-              <p className="hidden whitespace-nowrap text-white/55 lg:block">
-                PAN AAHTM8926G
-                <span className="mx-2.5 text-white/20">·</span>
-                NITI Aayog DL/2022/0315852
-              </p>
-              <span className="mx-3 hidden h-3 w-px bg-white/15 sm:block" />
-              <a
-                href="tel:01142542612"
-                className="site-mast-link hidden sm:inline-flex shrink-0"
-              >
+            <div className="site-mast-contacts">
+              <a href={`tel:${ORG.phone}`} className="site-mast-link">
                 <FiPhone className="size-3.5 shrink-0 text-secondary" />
-                011-42542612
+                {ORG.phoneDisplay}
               </a>
-              <span className="mx-3 hidden h-3 w-px bg-white/15 sm:block" />
-              <a
-                href="mailto:info@manavsewa.org.in"
-                className="site-mast-link inline-flex min-w-0"
-              >
+              <a href={`mailto:${ORG.email}`} className="site-mast-link">
                 <FiMail className="size-3.5 shrink-0 text-secondary" />
-                <span className="truncate">Info@manavsewa.org.in</span>
+                <span className="truncate">{ORG.email}</span>
               </a>
             </div>
           </div>
@@ -86,38 +75,17 @@ export default function PrimaryHeader() {
 
         <div className="site-header-bar">
           <div
-            className={`custom_container flex items-center justify-between gap-3 transition-[height] duration-300 lg:grid lg:grid-cols-[auto_1fr_auto] lg:gap-8 ${
-              isScrolled ? 'h-16' : 'h-16 sm:h-20'
+            className={`site-header-inner custom_container ${
+              isScrolled ? 'is-compact' : ''
             }`}
           >
             <BrandLogo onNavigate={closeMenu} />
 
-            <PrimaryMenu
-              className="hidden items-center justify-center gap-8 lg:flex xl:gap-10"
-              itemClassName={({ isActive }) =>
-                `site-nav-link ${isActive ? 'is-active' : ''}`
-              }
-            />
-
-            <div className="flex shrink-0 items-center gap-3 sm:gap-4">
-              <a href="tel:01142542612" className="site-call">
-                <span className="site-call-icon">
-                  <FiPhone className="size-4" />
-                </span>
-                <span className="flex flex-col leading-none">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-black">
-                    Call us
-                  </span>
-                  <span className="mt-1.5 text-sm font-bold text-primary">
-                    011-42542612
-                  </span>
-                </span>
-              </a>
-
-              <NavLink to={getContactPageRoute()} className="site-donate">
+            <div className="site-header-actions">
+              <a href={RAZORPAY_URL} target="_blank" rel="noreferrer" className="site-donate">
                 Donate Now
                 <HiArrowNarrowRight className="size-3.5" />
-              </NavLink>
+              </a>
 
               <button
                 type="button"
@@ -147,6 +115,15 @@ export default function PrimaryHeader() {
               </button>
             </div>
           </div>
+
+          <div className="site-header-nav-wrap">
+            <PrimaryMenu
+              className="site-header-nav custom_container"
+              itemClassName={({ isActive }) =>
+                `site-nav-link ${isActive ? 'is-active' : ''}`
+              }
+            />
+          </div>
         </div>
       </div>
 
@@ -156,6 +133,7 @@ export default function PrimaryHeader() {
       >
         <div className="custom_container relative flex min-h-full flex-col justify-between py-8">
           <PrimaryMenu
+            variant="overlay"
             className="flex flex-col"
             itemClassName={({ isActive }) =>
               `site-overlay-link ${isActive ? 'is-active' : ''}`
@@ -165,36 +143,32 @@ export default function PrimaryHeader() {
 
           <div>
             <div className="grid gap-3 text-sm text-white/70 sm:grid-cols-2">
-              <a
-                href="mailto:info@manavsewa.org.in"
-                className="inline-flex items-center gap-2 hover:text-secondary"
-              >
+              <a href={`mailto:${ORG.email}`} className="inline-flex items-center gap-2 hover:text-secondary">
                 <FiMail className="size-4 text-secondary" />
-                Info@manavsewa.org.in
+                {ORG.email}
               </a>
-              <a
-                href="tel:01142542612"
-                className="inline-flex items-center gap-2 hover:text-secondary"
-              >
+              <a href={`tel:${ORG.phone}`} className="inline-flex items-center gap-2 hover:text-secondary">
                 <FiPhone className="size-4 text-secondary" />
-                011-42542612
+                {ORG.phoneDisplay}
               </a>
             </div>
             <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.12em] text-white/45">
-              Reg. No. 185
+              Reg. No. {ORG.regNo}
               <span className="mx-2 text-white/20">·</span>
-              PAN AAHTM8926G
+              PAN {ORG.pan}
               <span className="mx-2 text-white/20">·</span>
-              NITI Aayog DL/2022/0315852
+              NITI Aayog {ORG.nitiAayog}
             </p>
-            <NavLink
-              to={getContactPageRoute()}
+            <a
+              href={RAZORPAY_URL}
+              target="_blank"
+              rel="noreferrer"
               onClick={closeMenu}
               className="site-overlay-donate"
             >
               Donate Now
               <HiArrowNarrowRight className="size-4" />
-            </NavLink>
+            </a>
           </div>
         </div>
       </div>

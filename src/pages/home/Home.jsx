@@ -5,12 +5,12 @@ import AboutSection from '../../components/home/AboutSection'
 import ImpactFilm from '../../components/home/ImpactFilm'
 import CausesSection from '../../components/home/CausesSection'
 import StoryQuote from '../../components/home/StoryQuote'
-import GivingPath from '../../components/home/GivingPath'
 import EventsSection from '../../components/home/EventsSection'
 import GiftLedger from '../../components/home/GiftLedger'
 import VoicesBoard from '../../components/home/VoicesBoard'
-import VolunteerDesk from '../../components/home/VolunteerDesk'
+import NewsSection from '../../components/home/NewsSection'
 import DonateBand from '../../components/home/DonateBand'
+import SubscribeBand from '../../components/shared/SubscribeBand'
 
 export default function HomePage() {
   return (
@@ -21,13 +21,13 @@ export default function HomePage() {
       <AboutSection />
       <ImpactFilm />
       <CausesSection />
-      <StoryQuote />
-      <GivingPath />
       <EventsSection />
+      <StoryQuote />
       <GiftLedger />
       <VoicesBoard />
-      <VolunteerDesk />
+      <NewsSection />
       <DonateBand />
+      <SubscribeBand />
     </>
   )
 }

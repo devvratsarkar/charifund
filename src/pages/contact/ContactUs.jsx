@@ -2,11 +2,12 @@ import { useState } from 'react'
 import { FiMail, FiMapPin, FiPhone } from 'react-icons/fi'
 import PageHero from '../../components/layout/PageHero'
 import Reveal from '../../components/ui/Reveal'
+import { ORG } from '../../data/site'
 
 const DETAILS = [
-  { label: 'Write to us', value: 'info@icchashaktitrust.org', href: 'mailto:info@icchashaktitrust.org', Icon: FiMail },
-  { label: 'Call any time', value: '011-3261-8471', href: 'tel:01132618471', Icon: FiPhone },
-  { label: 'Visit', value: 'New Delhi, India', href: null, Icon: FiMapPin },
+  { label: 'Write to us', value: ORG.email, href: `mailto:${ORG.email}`, Icon: FiMail },
+  { label: 'Call any time', value: ORG.phoneDisplay, href: `tel:${ORG.phone}`, Icon: FiPhone },
+  { label: 'Visit', value: ORG.address, href: null, Icon: FiMapPin },
 ]
 
 export default function ContactUsPage() {
@@ -21,9 +22,9 @@ export default function ContactUsPage() {
     <>
       <PageHero
         eyebrow="We are listening"
-        title="Contact Manavsewa Trust"
-        copy="Ask about a program, volunteer, or start a monthly gift. A teammate will write back."
-        image="/images/banner/slide-3.png"
+        title="Contact Us"
+        copy="Ask about a program, volunteer, or start a gift. A teammate will write back."
+        image="/images/backgrounds/slider-1-3.jpg"
       />
 
       <section className="relative overflow-hidden bg-cream py-16 sm:py-20">
@@ -32,7 +33,7 @@ export default function ContactUsPage() {
           <div>
             <Reveal>
               <p className="text-[12px] font-bold uppercase tracking-[0.22em] text-secondary">
-                Reach the team
+                Get in touch
               </p>
               <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-primary sm:text-4xl">
                 Let’s start a conversation
@@ -57,6 +58,14 @@ export default function ContactUsPage() {
                 </Reveal>
               ))}
             </div>
+            <Reveal delay={280} className="mt-6 overflow-hidden">
+              <iframe
+                title="Manav Sewa office map"
+                src="https://maps.google.com/maps?q=3/102%20Laxmi%20Nagar%20Delhi%20110092&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                className="h-56 w-full border-0"
+                loading="lazy"
+              />
+            </Reveal>
           </div>
 
           <Reveal variant="right" delay={120} className="bg-white p-6 shadow-[0_20px_48px_rgba(18,47,42,0.1)] sm:p-8">
@@ -67,7 +76,7 @@ export default function ContactUsPage() {
                   We received your message
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-black">
-                  A Manavsewa Trust teammate will reply shortly. Until then, thank you for standing with us.
+                  A Manav Sewa teammate will reply shortly. Until then, thank you for standing with us.
                 </p>
               </div>
             ) : (

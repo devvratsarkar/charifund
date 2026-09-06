@@ -1,30 +1,7 @@
+import { EVENTS } from '../../data/site'
 import { useEffect, useRef, useState } from 'react'
 import { FiClock, FiMapPin, FiPlus } from 'react-icons/fi'
 import '../../styles/events.css'
-
-const EVENTS = [
-  {
-    title: 'Let’s Educate Children For a Good Life',
-    copy: 'Join families, teachers, and volunteers as we gather books, kits, and care so every child can learn with dignity and joy.',
-    date: 'Dec 13, 2024 @ 10:00 am',
-    venue: '350 5th Ave, New York, NY 10118, United States',
-    image: '/images/banner/slide-1.png',
-  },
-  {
-    title: 'Your Little Help Can Heal Pains',
-    copy: 'A community medical camp bringing check-ups, medicine, and comfort to children and families who need care the most.',
-    date: 'Jan 18, 2025 @ 09:30 am',
-    venue: '350 5th Ave, New York, NY 10118, United States',
-    image: '/images/banner/slide-2.png',
-  },
-  {
-    title: 'Give Children the Gift of Education',
-    copy: 'Help us open classroom doors with scholarships, meals, and supplies that keep young learners in school for the long run.',
-    date: 'Feb 08, 2025 @ 11:00 am',
-    venue: '350 5th Ave, New York, NY 10118, United States',
-    image: '/images/banner/slide-3.png',
-  },
-]
 
 function useInView(offset = 0.16) {
   const ref = useRef(null)

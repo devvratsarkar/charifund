@@ -1,5 +1,5 @@
 .site-header {
-  --header-offset: 6.5rem;
+  --header-offset: 7.5rem;
   position: sticky;
   top: 0;
   z-index: 50;
@@ -8,12 +8,24 @@
 
 @media (min-width: 640px) {
   .site-header {
-    --header-offset: 7.5rem;
+    --header-offset: 8.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-header {
+    --header-offset: 12.5rem;
   }
 }
 
 .site-header.is-scrolled {
-  --header-offset: 4rem;
+  --header-offset: 5.25rem;
+}
+
+@media (min-width: 1024px) {
+  .site-header.is-scrolled {
+    --header-offset: 8.75rem;
+  }
 }
 
 .site-masthead {
@@ -34,7 +46,43 @@
   opacity: 1;
 }
 
+.site-masthead-inner {
+  display: flex;
+  min-width: 0;
+  height: 2.6rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.site-mast-ids {
+  display: none;
+  min-width: 0;
+  align-items: center;
+  gap: 0.7rem;
+  color: rgb(255 255 255 / 0.62);
+}
+
+.site-mast-contacts {
+  display: flex;
+  min-width: 0;
+  margin-left: auto;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.site-mast-dot {
+  display: none;
+  width: 1px;
+  height: 0.7rem;
+  background: rgb(255 255 255 / 0.18);
+}
+
 .site-mast-link {
+  display: inline-flex;
   min-width: 0;
   align-items: center;
   gap: 0.45rem;
@@ -46,9 +94,10 @@
 }
 
 .site-chip {
+  display: inline-flex;
   align-items: center;
   border: 1px solid rgb(255 193 7 / 0.45);
-  padding: 0.2rem 0.55rem;
+  padding: 0.18rem 0.5rem;
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -92,13 +141,117 @@
   opacity: 0.85;
 }
 
+.site-header-inner {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  min-height: 5.25rem;
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+}
+
+@media (min-width: 640px) {
+  .site-header-inner {
+    min-height: 6.25rem;
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+  }
+}
+
+.site-header-inner.is-compact {
+  min-height: 4.5rem;
+  padding-top: 0.45rem;
+  padding-bottom: 0.45rem;
+}
+
+.site-brand {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  min-width: 0;
+  max-width: min(78vw, 340px);
+  flex: 1 1 auto;
+  align-items: center;
+}
+
+.site-brand img {
+  display: block;
+  height: 3.6rem;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: left center;
+}
+
+@media (min-width: 640px) {
+  .site-brand {
+    max-width: 460px;
+  }
+
+  .site-brand img {
+    height: 4.6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-brand {
+    max-width: 540px;
+  }
+
+  .site-brand img {
+    height: 5.35rem;
+  }
+}
+
+.site-header-inner.is-compact .site-brand img {
+  height: 3.1rem;
+}
+
+@media (min-width: 1024px) {
+  .site-header-inner.is-compact .site-brand img {
+    height: 3.75rem;
+  }
+}
+
+.site-header-nav-wrap {
+  display: none;
+  position: relative;
+  z-index: 21;
+  border-top: 1px solid rgb(18 47 42 / 0.08);
+  background: rgb(255 255 255 / 0.72);
+}
+
+.site-header-nav {
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem 1.75rem;
+  padding: 0.85rem 0 1rem;
+}
+
+.site-header-actions {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.75rem;
+}
+
 .site-nav-link {
   position: relative;
   display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
   padding-bottom: 0.4rem;
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   font-weight: 500;
   letter-spacing: 0.01em;
+  white-space: nowrap;
   color: var(--color-black);
   transition: color 0.3s ease;
 }
@@ -124,6 +277,75 @@
 .site-nav-link:hover::after,
 .site-nav-link.is-active::after {
   transform: scaleX(1);
+}
+
+.site-dropdown {
+  position: relative;
+}
+
+.site-dropdown-trigger {
+  cursor: pointer;
+}
+
+.site-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.7rem);
+  left: 0;
+  z-index: 30;
+  min-width: 16rem;
+  background: #fff;
+  padding: 0.55rem 0;
+  box-shadow: 0 18px 48px rgb(18 47 42 / 0.14);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.site-dropdown:hover .site-dropdown-menu,
+.site-dropdown:focus-within .site-dropdown-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.site-dropdown-link {
+  display: block;
+  padding: 0.65rem 1rem;
+  font-size: 0.86rem;
+  color: var(--color-black);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.site-dropdown-link:hover,
+.site-dropdown-link.active {
+  background: rgb(255 193 7 / 0.16);
+  color: var(--color-primary);
+}
+
+.site-dropdown--end .site-dropdown-menu {
+  left: auto;
+  right: 0;
+}
+
+.site-overlay-group + .site-overlay-group {
+  margin-top: 0.35rem;
+}
+
+.site-overlay-sub {
+  display: grid;
+  padding: 0.2rem 0 0.7rem;
+}
+
+.site-overlay-sublink {
+  padding: 0.35rem 0;
+  font-size: 0.92rem;
+  color: rgb(255 255 255 / 0.62);
+}
+
+.site-overlay-sublink:hover,
+.site-overlay-sublink.active {
+  color: #ffc107;
 }
 
 .site-call {
@@ -154,7 +376,7 @@
   align-items: center;
   gap: 0.5rem;
   background: #ffc107;
-  padding: 0.8rem 1.2rem;
+  padding: 0.7rem 1.1rem;
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.16em;
@@ -215,7 +437,7 @@
 }
 
 .site-overlay::before {
-  content: 'Manavsewa Trust';
+  content: 'Manav Sewa';
   position: absolute;
   top: 12%;
   right: 4%;
@@ -237,10 +459,10 @@
 .site-overlay-link {
   display: flex;
   align-items: baseline;
-  padding: 0.85rem 0;
+  padding: 0.55rem 0;
   border-bottom: 1px solid rgb(255 255 255 / 0.08);
   font-family: var(--font-serif);
-  font-size: clamp(1.7rem, 7vw, 2.5rem);
+  font-size: clamp(1.35rem, 5vw, 1.85rem);
   line-height: 1.15;
   color: rgb(255 255 255 / 0.88);
   transform: translate3d(0, 16px, 0);
@@ -292,18 +514,34 @@
   .site-donate {
     display: inline-flex;
   }
+
+  .site-mast-ids {
+    display: flex;
+  }
+
+  .site-mast-dot {
+    display: block;
+  }
 }
 
 @media (min-width: 1024px) {
+  .site-header-nav-wrap {
+    display: block;
+  }
+
   .site-overlay,
   .site-menu-btn {
     display: none;
   }
+
+  .site-nav-link {
+    font-size: 0.95rem;
+  }
 }
 
 @media (min-width: 1280px) {
-  .site-call {
-    display: flex;
+  .site-header-nav {
+    gap: 0.25rem 2.15rem;
   }
 }
 

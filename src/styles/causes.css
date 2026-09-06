@@ -182,6 +182,52 @@
   opacity: 1;
 }
 
+.causes-card--photo {
+  min-height: 0;
+  padding: 0.85rem 0.85rem 1.35rem;
+}
+
+.causes-card--photo::before {
+  display: none;
+}
+
+.causes-photo {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  height: 12.5rem;
+}
+
+.causes-photo img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.causes-card:hover .causes-photo img {
+  transform: scale(1.06);
+}
+
+.causes-tag {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background: #ffc107;
+  padding: 0.3rem 0.65rem;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #122f2a;
+}
+
+.causes-card--photo h3,
+.causes-card--photo p,
+.causes-card--photo span {
+  padding-inline: 0.35rem;
+}
+
 @media (hover: none) {
   .causes-card:hover {
     transform: none;

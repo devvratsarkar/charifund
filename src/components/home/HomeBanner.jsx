@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, EffectFade, Keyboard, Parallax } from 'swiper/modules'
 import { ArrowLeftIcon, ArrowRightIcon } from '../ui/AllSVG'
-import { getAboutPageRoute, getContactPageRoute } from '../../routes/routes'
+import { getContactPageRoute } from '../../routes/routes'
 import 'swiper/css'
 import 'swiper/css/effect-fade'
 import '../../styles/banner.css'
@@ -16,28 +16,28 @@ const SLIDES = [
     chapter: 'Shelter',
     eyebrow: 'Give a helping hand for a child',
     title: 'Lend a helping hand to those who need it',
-    copy: 'Join Manavsewa Trust in creating safer homes, stronger classrooms, and brighter futures.',
-    image: '/images/banner/slide-1.png',
+    copy: 'Join Manav Sewa Trust in creating safer homes, stronger classrooms, and brighter futures.',
+    image: '/images/backgrounds/slider-1-1.jpg',
     reveal: 'curtain',
     ken: 1,
   },
   {
     index: '02',
     chapter: 'Education',
-    eyebrow: 'Education at the right time',
-    title: 'Every child deserves a chance to learn and grow',
-    copy: 'Your support funds school, care, and the opportunities that should never wait.',
-    image: '/images/banner/slide-2.png',
+    eyebrow: 'Give a helping hand for a child',
+    title: 'Lend a helping hand to those who need it',
+    copy: 'Right education with the right opportunities at the right time is the focus of this work.',
+    image: '/images/backgrounds/slider-1-2.jpg',
     reveal: 'iris',
     ken: 2,
   },
   {
     index: '03',
     chapter: 'Dignity',
-    eyebrow: 'Together we can do more',
-    title: 'A little kindness can change a whole life',
-    copy: 'Stand with families, women, and elders who need dignity, care, and hope.',
-    image: '/images/banner/slide-3.png',
+    eyebrow: 'Give a helping hand for a child',
+    title: 'Lend a helping hand to those who need it',
+    copy: 'Stand with children, women, and elders who need dignity, care, and hope.',
+    image: '/images/backgrounds/slider-1-3.jpg',
     reveal: 'shutter',
     ken: 3,
   },
@@ -77,7 +77,7 @@ export default function HomeBanner() {
     <section
       className="home-banner relative isolate flex flex-col overflow-hidden bg-primary text-white"
       aria-roledescription="carousel"
-      aria-label="Manavsewa Trust highlights"
+      aria-label="Manav Sewa Trust highlights"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -88,7 +88,7 @@ export default function HomeBanner() {
         <span className="banner-frame-corner banner-frame-corner--br" />
       </div>
       <p className="banner-spine" aria-hidden="true">
-        Manavsewa Trust
+        Manav Sewa
       </p>
 
       <Swiper
@@ -150,18 +150,20 @@ export default function HomeBanner() {
                   </p>
                   <div className="banner-actions mt-7 flex flex-wrap items-center gap-3 sm:mt-10 sm:gap-4">
                     <NavLink
-                      to={getAboutPageRoute()}
+                      to={getContactPageRoute()}
                       className="cf-cta-sheen group relative inline-flex w-fit overflow-hidden items-center justify-center gap-2 bg-secondary px-5 py-3 text-[11px] font-extrabold uppercase tracking-[0.14em] text-primary transition-colors duration-300 hover:bg-white sm:px-7 sm:py-3.5 sm:text-[12px] sm:tracking-[0.18em]"
                     >
                       Join With Us
                       <ArrowRightIcon className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
                     </NavLink>
-                    <NavLink
-                      to={getContactPageRoute()}
+                    <a
+                      href="https://razorpay.me/@icchashakticharitabletrust"
+                      target="_blank"
+                      rel="noreferrer"
                       className="inline-flex w-fit items-center justify-center gap-2 border border-white/28 px-5 py-3 text-[11px] font-extrabold uppercase tracking-[0.14em] text-white transition-colors duration-300 hover:border-secondary hover:bg-secondary/10 hover:text-secondary sm:px-7 sm:py-3.5 sm:text-[12px] sm:tracking-[0.18em]"
                     >
                       Donate Now
-                    </NavLink>
+                    </a>
                   </div>
                 </div>
               </div>

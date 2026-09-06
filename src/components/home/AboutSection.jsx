@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { FaHandshake, FaHandHoldingUsd, FaShoppingBag, FaPhoneAlt, FaHeart, FaUsers } from 'react-icons/fa'
 import { HiChevronDoubleRight } from 'react-icons/hi'
 import { getAboutPageRoute } from '../../routes/routes'
+import { ORG } from '../../data/site'
 import '../../styles/about.css'
 
 const STATS = [
@@ -132,7 +133,7 @@ export default function AboutSection() {
             <div className="overflow-hidden rounded-xl sm:rounded-[1.4rem]">
               <img
                 ref={photoRef}
-                src="/images/banner/slide-1.png"
+                src="/images/about/about-1-1.png"
                 alt="Children gathering outdoors"
                 className="about-photo h-64 w-full object-cover will-change-transform sm:h-[420px] lg:h-[520px]"
               />
@@ -150,7 +151,7 @@ export default function AboutSection() {
             style={{ animationDelay: '80ms' }}
           >
             <span className="size-1.5 rounded-full bg-secondary" />
-            About Clean Heart
+            About Manav Sewa
           </p>
 
           <h2
@@ -169,7 +170,7 @@ export default function AboutSection() {
             style={{ animationDelay: '300ms' }}
           >
             <img
-              src="/images/banner/slide-2.png"
+              src="/images/about/about-1-3.jpg"
               alt="Children sitting together"
               className="h-16 w-16 shrink-0 rounded-full object-cover shadow-[0_12px_30px_rgba(18,47,42,0.12)] sm:h-24 sm:w-40"
             />
@@ -204,7 +205,7 @@ export default function AboutSection() {
               <span className="px-4 py-2 sm:px-6 sm:py-0">More About Us</span>
             </NavLink>
 
-            <a href="tel:01132618471" className="flex items-center gap-3">
+            <a href={`tel:${ORG.phone}`} className="flex items-center gap-3">
               <span className="about-phone-ring grid size-12 place-items-center rounded-full border border-secondary text-primary">
                 <FaPhoneAlt className="size-4" />
               </span>
@@ -213,7 +214,7 @@ export default function AboutSection() {
                   Call Any Time
                 </span>
                 <span className="mt-1 block font-display text-lg font-extrabold text-primary">
-                  01132618471
+                  {ORG.phoneDisplay}
                 </span>
               </span>
             </a>

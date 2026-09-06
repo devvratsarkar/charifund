@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import { ORG } from '../../data/site'
 import '../../styles/loader.css'
 
-const WORD = 'MANAVSEWA'
+const WORD = 'MANAV SEWA'
 const INTRO_MS = 2100
 const EXIT_MS = 900
 const ROUTE_MS = 420
@@ -63,7 +64,7 @@ export default function PageLoader() {
       }`}
       role="status"
       aria-live="polite"
-      aria-label="Loading Manavsewa Trust"
+      aria-label={`Loading ${ORG.name}`}
     >
       <div className="page-loader-panel page-loader-panel--top" />
       <div className="page-loader-panel page-loader-panel--bottom" />
@@ -71,21 +72,11 @@ export default function PageLoader() {
       {mode === 'intro' ? (
         <div className="page-loader-core">
           <div className="flex flex-col items-center text-center">
-            <span className="relative grid size-20 place-items-center">
-              <svg className="absolute inset-0" viewBox="0 0 48 48" aria-hidden="true">
-                <rect
-                  className="page-loader-ring"
-                  x="3"
-                  y="3"
-                  width="42"
-                  height="42"
-                  rx="2"
-                />
-              </svg>
-              <span className="page-loader-mark font-display text-3xl font-extrabold text-secondary">
-                M
-              </span>
-            </span>
+            <img
+              src={ORG.logo}
+              alt={ORG.legalName}
+              className="page-loader-mark h-16 w-auto max-w-[280px] object-contain sm:h-20"
+            />
 
             <p className="page-loader-word mt-6 font-serif text-xl tracking-[0.18em] text-white sm:text-3xl">
               {WORD.split('').map((letter, index) => (
@@ -97,7 +88,7 @@ export default function PageLoader() {
 
             <span className="page-loader-line mt-5 block h-px w-24 bg-secondary" />
             <p className="page-loader-sub mt-4 text-[10px] font-bold uppercase text-white/55">
-              Trust
+              Health and Education Trust
             </p>
           </div>
         </div>
