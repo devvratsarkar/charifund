@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
-import { FiMail, FiMapPin, FiPhone } from 'react-icons/fi'
+import { FiMail, FiPhone } from 'react-icons/fi'
 import { HiArrowNarrowRight } from 'react-icons/hi'
 import BrandLogo from './BrandLogo'
 import PrimaryMenu from './PrimaryMenu'
@@ -52,33 +52,34 @@ export default function PrimaryHeader() {
       <div className="relative z-20">
         <div className="site-masthead">
           <div className="custom_container flex h-10 min-w-0 items-center justify-between gap-3 text-[11px] font-semibold tracking-[0.06em]">
-            <div className="flex min-w-0 items-center">
-              <span className="hidden items-center gap-2 text-white/70 md:inline-flex">
-                <FiMapPin className="size-3.5 shrink-0 text-secondary" />
-                New Delhi
-              </span>
-              <span className="mx-4 hidden h-3 w-px bg-white/15 md:block" />
+            <p className="min-w-0 truncate uppercase tracking-[0.12em] text-white/80">
+              Manav Sewa Health and Education Trust
+            </p>
+
+            <div className="flex shrink-0 items-center">
+              <span className="site-chip hidden md:inline-flex">Reg. No. 185</span>
+              <span className="mx-3 hidden h-3 w-px bg-white/15 lg:block" />
+              <p className="hidden whitespace-nowrap text-white/55 lg:block">
+                PAN AAHTM8926G
+                <span className="mx-2.5 text-white/20">·</span>
+                NITI Aayog DL/2022/0315852
+              </p>
+              <span className="mx-3 hidden h-3 w-px bg-white/15 sm:block" />
               <a
-                href="mailto:info@icchashaktitrust.org"
-                className="site-mast-link inline-flex min-w-0 truncate"
+                href="tel:01142542612"
+                className="site-mast-link hidden sm:inline-flex shrink-0"
+              >
+                <FiPhone className="size-3.5 shrink-0 text-secondary" />
+                011-42542612
+              </a>
+              <span className="mx-3 hidden h-3 w-px bg-white/15 sm:block" />
+              <a
+                href="mailto:info@manavsewa.org.in"
+                className="site-mast-link inline-flex min-w-0"
               >
                 <FiMail className="size-3.5 shrink-0 text-secondary" />
-                <span className="truncate">info@icchashaktitrust.org</span>
+                <span className="truncate">Info@manavsewa.org.in</span>
               </a>
-              <span className="mx-4 hidden h-3 w-px bg-white/15 sm:block" />
-              <a href="tel:01132618471" className="site-mast-link hidden sm:inline-flex shrink-0">
-                <FiPhone className="size-3.5 shrink-0 text-secondary" />
-                011-3261-8471
-              </a>
-            </div>
-
-            <div className="flex shrink-0 items-center gap-2.5">
-              <span className="site-chip hidden sm:inline-flex">80G</span>
-              <p className="hidden text-white/50 lg:block">
-                NITI Aayog DL/2023/0375461
-                <span className="mx-2.5 text-white/20">·</span>
-                Reg. 705
-              </p>
             </div>
           </div>
         </div>
@@ -99,7 +100,7 @@ export default function PrimaryHeader() {
             />
 
             <div className="flex shrink-0 items-center gap-3 sm:gap-4">
-              <a href="tel:01132618471" className="site-call">
+              <a href="tel:01142542612" className="site-call">
                 <span className="site-call-icon">
                   <FiPhone className="size-4" />
                 </span>
@@ -108,7 +109,7 @@ export default function PrimaryHeader() {
                     Call us
                   </span>
                   <span className="mt-1.5 text-sm font-bold text-primary">
-                    011-3261-8471
+                    011-42542612
                   </span>
                 </span>
               </a>
@@ -165,20 +166,27 @@ export default function PrimaryHeader() {
           <div>
             <div className="grid gap-3 text-sm text-white/70 sm:grid-cols-2">
               <a
-                href="mailto:info@icchashaktitrust.org"
+                href="mailto:info@manavsewa.org.in"
                 className="inline-flex items-center gap-2 hover:text-secondary"
               >
                 <FiMail className="size-4 text-secondary" />
-                info@icchashaktitrust.org
+                Info@manavsewa.org.in
               </a>
               <a
-                href="tel:01132618471"
+                href="tel:01142542612"
                 className="inline-flex items-center gap-2 hover:text-secondary"
               >
                 <FiPhone className="size-4 text-secondary" />
-                011-3261-8471
+                011-42542612
               </a>
             </div>
+            <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.12em] text-white/45">
+              Reg. No. 185
+              <span className="mx-2 text-white/20">·</span>
+              PAN AAHTM8926G
+              <span className="mx-2 text-white/20">·</span>
+              NITI Aayog DL/2022/0315852
+            </p>
             <NavLink
               to={getContactPageRoute()}
               onClick={closeMenu}
