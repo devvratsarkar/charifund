@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { FiMail, FiPhone } from 'react-icons/fi'
-import { HiArrowNarrowRight } from 'react-icons/hi'
 import BrandLogo from './BrandLogo'
 import PrimaryMenu from './PrimaryMenu'
 import { ORG } from '../../../data/site'
-import { RAZORPAY_URL } from '../../../routes/routes'
 
 export default function PrimaryHeader() {
   const { pathname } = useLocation()
@@ -81,12 +79,14 @@ export default function PrimaryHeader() {
           >
             <BrandLogo onNavigate={closeMenu} />
 
-            <div className="site-header-actions">
-              <a href={RAZORPAY_URL} target="_blank" rel="noreferrer" className="site-donate">
-                Donate Now
-                <HiArrowNarrowRight className="size-3.5" />
-              </a>
+            <PrimaryMenu
+              className="site-header-nav"
+              itemClassName={({ isActive }) =>
+                `site-nav-link ${isActive ? 'is-active' : ''}`
+              }
+            />
 
+            <div className="site-header-actions">
               <button
                 type="button"
                 className={`site-menu-btn ${isOpen ? 'is-open' : ''}`}
@@ -114,15 +114,6 @@ export default function PrimaryHeader() {
                 </span>
               </button>
             </div>
-          </div>
-
-          <div className="site-header-nav-wrap">
-            <PrimaryMenu
-              className="site-header-nav custom_container"
-              itemClassName={({ isActive }) =>
-                `site-nav-link ${isActive ? 'is-active' : ''}`
-              }
-            />
           </div>
         </div>
       </div>
@@ -159,16 +150,6 @@ export default function PrimaryHeader() {
               <span className="mx-2 text-white/20">·</span>
               NITI Aayog {ORG.nitiAayog}
             </p>
-            <a
-              href={RAZORPAY_URL}
-              target="_blank"
-              rel="noreferrer"
-              onClick={closeMenu}
-              className="site-overlay-donate"
-            >
-              Donate Now
-              <HiArrowNarrowRight className="size-4" />
-            </a>
           </div>
         </div>
       </div>

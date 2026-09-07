@@ -131,7 +131,7 @@ export default function PrimaryMenu({
         item.children ? (
           <div
             key={item.label}
-            className={`site-dropdown ${index >= NAV_ITEMS.length - 3 ? 'site-dropdown--end' : ''}`}
+            className={`site-dropdown ${index >= NAV_ITEMS.length - 4 ? 'site-dropdown--end' : ''}`}
           >
             {item.to ? (
               <NavLink
