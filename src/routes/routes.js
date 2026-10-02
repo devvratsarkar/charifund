@@ -7,19 +7,19 @@ export function getAboutPageRoute() {
 }
 
 export function getServicesPageRoute() {
-  return `/program`
+  return `/sponsor`
 }
 
 export function getProgramPageRoute(slug = '') {
-  return slug ? `/program/${slug}` : `/program`
+  return slug ? `/sponsor/${slug}` : `/sponsor`
 }
 
 export function getContactPageRoute() {
   return `/contact`
 }
 
-export function getCurrentCaseRoute() {
-  return `/support/current-case`
+export function getLiveCaseRoute() {
+  return `/support/live-case`
 }
 
 export function getSuccessCaseRoute() {
@@ -62,6 +62,7 @@ export function getRefundPolicyRoute() {
   return `/return-and-refund`
 }
 
-export const RAZORPAY_URL = 'https://razorpay.me/@icchashakticharitabletrust'
+// export const RAZORPAY_URL = 'https://razorpay.me/@icchashakticharitabletrust'
+export const PAYU_URL = 'https://payu.in/web/56273BE479CD0E8D539CAF9624B1CD9F'
 export const REGISTRATION_PDF = '/12A-Certificate_2.pdf'
 export const EIGHTY_G_PDF = '/80-G-Certificate-income-tax.pdf'

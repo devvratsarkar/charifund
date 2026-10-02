@@ -3,7 +3,7 @@ import { FiMail, FiPhone, FiMapPin } from 'react-icons/fi'
 import {
   getAboutPageRoute,
   getContactPageRoute,
-  getCurrentCaseRoute,
+  getLiveCaseRoute,
   getDonatePageRoute,
   getGalleryPageRoute,
   getHomePageRoute,
@@ -17,7 +17,7 @@ import Reveal from '../ui/Reveal'
 
 const LINKS = [
   { label: 'About Us', to: getAboutPageRoute() },
-  { label: 'Current Case', to: getCurrentCaseRoute() },
+  { label: 'Live Case', to: getLiveCaseRoute() },
   { label: 'Gallery', to: getGalleryPageRoute() },
   { label: 'Donate Now', to: getDonatePageRoute() },
   { label: 'Contact Us', to: getContactPageRoute() },
@@ -87,7 +87,7 @@ export default function SiteFooter() {
             UPI Donation
           </p>
           <NavLink to={getUpiDonationRoute()} className="mt-4 block">
-            <img src="/images/upi.jpeg" alt="UPI donation QR" className="h-36 w-36 object-cover" />
+            <img src="/images/upi-qr.png" alt="UPI donation QR" className="h-36 w-36 object-contain bg-white p-1" />
           </NavLink>
         </Reveal>
       </div>

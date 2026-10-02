@@ -12,7 +12,7 @@ export default function ServicesPage() {
       <PageHero
         eyebrow="Our programs"
         title="How we serve"
-        copy="Child education, women empowerment, homes for elders, and child sponsorship."
+        copy="Food distributions, child education, women empowerment, homes for elders, and child sponsorship."
         image="/images/services/child-education.jpg"
       />
 

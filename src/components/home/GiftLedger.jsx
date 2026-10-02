@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import { RAZORPAY_URL } from '../../routes/routes'
+import { PAYU_URL } from '../../routes/routes'
 import { SUPPORT_CAUSES } from '../../data/site'
 import Reveal from '../ui/Reveal'
 
@@ -23,7 +23,7 @@ export default function GiftLedger() {
               <img src={cause.image} alt="" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
               <div className="absolute inset-0 bg-linear-to-t from-primary via-primary/35 to-transparent" />
               <a
-                href={RAZORPAY_URL}
+                href={PAYU_URL}
                 target="_blank"
                 rel="noreferrer"
                 className="absolute inset-x-0 bottom-0 p-6 text-white"

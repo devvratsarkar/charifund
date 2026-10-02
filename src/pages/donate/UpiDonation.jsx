@@ -2,6 +2,15 @@ import BankDetails from '../../components/shared/BankDetails'
 import PageHero from '../../components/layout/PageHero'
 import Reveal from '../../components/ui/Reveal'
 
+const UPI_BANK = {
+  name: 'HDFC Bank',
+  beneficiary: 'MANAV SEWA HEALTH AND EDUCATION TRUST',
+  account: '50200068338322',
+  ifsc: 'HDFC0003987',
+  type: 'Current Account',
+  branch: 'Shakarpur Delhi',
+}
+
 export default function UpiDonationPage() {
   return (
     <>
@@ -9,14 +18,18 @@ export default function UpiDonationPage() {
         eyebrow="Donate With UPI"
         title="UPI Donation"
         copy="Scan the QR or use the bank details below to send your gift."
-        image="/images/upi.jpeg"
+        image="/images/upi-qr.png"
       />
       <section className="bg-cream py-16 sm:py-20">
         <div className="custom_container grid items-start gap-8 lg:grid-cols-2">
           <Reveal className="bg-white p-6 shadow-[0_16px_40px_rgba(18,47,42,0.08)]">
-            <img src="/images/upi.jpeg" alt="Manav Sewa UPI QR" className="mx-auto w-full max-w-md object-contain" />
+            <img
+              src="/images/upi-qr.png"
+              alt="Manav Sewa UPI QR"
+              className="mx-auto w-full max-w-md object-contain"
+            />
           </Reveal>
-          <BankDetails />
+          <BankDetails bank={UPI_BANK} />
         </div>
       </section>
     </>

@@ -33,6 +33,49 @@ export const SOCIAL = [
 
 export const PROGRAMS = [
   {
+    slug: 'food-distributions',
+    category: 'Food Distribution',
+    title: 'Food Distributions',
+    shortTitle: 'Food Distributions',
+    image: '/images/services/food-distributions.jpg',
+    workImage: '/images/services/food-distributions-work.jpg',
+    excerpt:
+      'Your contribution can fill a stomach. A gift helps provide nutritious meals and ration support for children and families who need it most.',
+    pledge: {
+      eyebrow: 'Select donation amount',
+      amounts: ['₹3000', '₹6000', '₹9000'],
+      note: 'Your donation will help for the nutrition of 1 child for one year.',
+    },
+    body: [
+      'The issue of malnutrition is of major concern for countries across the world. While it is a universal problem, children and women living in poverty are the worst affected by it. Due to the pandemic a lot of people lost their means of livelihood and were further pushed into poverty, which affected their food consumption levels and compromised their nutritional health. It also caused disruption in preventive health and nutrition services.',
+      'Our campaign ‘Feed The Children’ is an attempt towards enhancing education with adequate nutrition. While it is necessary to have underprivileged children attend school, it is also just as important to have them eat regular nutritious meals in a day. It focuses on improving the nutritional status of mothers, infants, and young children to promote holistic development and help them reach their fullest potential.',
+      'We strive to eliminate hunger by implementing the Mid-Day Meal Scheme in government schools and government-aided schools. Manav Sewa Trust also aims at countering malnutrition and supporting the right to education of socio-economically disadvantaged children.',
+      'Manav Sewa Trust has been putting all its efforts towards providing fresh, nutritious and hot meals to children on every single school day. Quality and food safety are the first and foremost elements at each of our kitchens. From our past experience, we have implemented various norms in every area of operations and service delivery. Health and safety activities are conducted every year to increase hygiene standards and improve the quality.',
+    ],
+    impacts: [
+      {
+        title: 'Livelihood Training',
+        copy: 'Providing free livelihood training to 150 women and distributing free sewing machines and kits to needy women.',
+      },
+      {
+        title: 'Education For All',
+        copy: 'Providing more than 400 children free education along with free stationery.',
+      },
+      {
+        title: 'Medical Help',
+        copy: 'We have provided more than 3500 families free treatment in urban and rural areas, and we aim to provide more free treatment across the country.',
+      },
+      {
+        title: 'Feed The Children',
+        copy: 'Daily 250 children get food through our organisation. Help those who need it and restore their faith in humanity.',
+      },
+      {
+        title: 'Ration Kits',
+        copy: 'We are aiming to provide free ration to 500 families every month. Your kindness can make this possible.',
+      },
+    ],
+  },
+  {
     slug: 'child-education',
     category: 'Education',
     title: 'Child Education Programmes',
@@ -102,7 +145,7 @@ export const PROGRAMS = [
   },
 ]
 
-export const CURRENT_CASES = [
+export const LIVE_CASES = [
   { name: 'Hanshika', condition: 'Blood Cancer', age: '6 years', image: '/images/cases/hanshika.jpg', details: '/cases/hanshika.pdf' },
   { name: 'Aditya', condition: 'Blood cancer', age: '6 years', image: '/images/cases/aditya.jpg', details: '/cases/aditya.pdf' },
   { name: 'Ravinandan Panday', condition: 'Brain Tumor', age: '3 years', image: '/images/cases/ravinand.jpg', details: '/cases/ravinandan.pdf' },

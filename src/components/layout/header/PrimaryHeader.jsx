@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { FiMail, FiPhone } from 'react-icons/fi'
 import BrandLogo from './BrandLogo'
-import PrimaryMenu from './PrimaryMenu'
+import PrimaryMenu, { ACTION_ITEMS, ALL_NAV_ITEMS, NAV_ITEMS } from './PrimaryMenu'
 import { ORG } from '../../../data/site'
 
 export default function PrimaryHeader() {
@@ -26,7 +26,7 @@ export default function PrimaryHeader() {
       if (event.key === 'Escape') setIsOpen(false)
     }
     const onResize = () => {
-      if (window.innerWidth >= 1024) setIsOpen(false)
+      if (window.innerWidth >= 1200) setIsOpen(false)
     }
 
     window.addEventListener('keydown', onKeyDown)
@@ -80,6 +80,7 @@ export default function PrimaryHeader() {
             <BrandLogo onNavigate={closeMenu} />
 
             <PrimaryMenu
+              items={NAV_ITEMS}
               className="site-header-nav"
               itemClassName={({ isActive }) =>
                 `site-nav-link ${isActive ? 'is-active' : ''}`
@@ -87,6 +88,11 @@ export default function PrimaryHeader() {
             />
 
             <div className="site-header-actions">
+              <PrimaryMenu
+                items={ACTION_ITEMS}
+                variant="cta"
+                className="site-header-ctas"
+              />
               <button
                 type="button"
                 className={`site-menu-btn ${isOpen ? 'is-open' : ''}`}
@@ -120,10 +126,11 @@ export default function PrimaryHeader() {
 
       <div
         id="site-overlay"
-        className={`site-overlay lg:hidden ${isOpen ? 'is-open' : ''}`}
+        className={`site-overlay min-[1200px]:hidden ${isOpen ? 'is-open' : ''}`}
       >
         <div className="custom_container relative flex min-h-full flex-col justify-between py-8">
           <PrimaryMenu
+            items={ALL_NAV_ITEMS}
             variant="overlay"
             className="flex flex-col"
             itemClassName={({ isActive }) =>

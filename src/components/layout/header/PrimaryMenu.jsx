@@ -2,12 +2,12 @@ import { NavLink } from 'react-router-dom'
 import { FiChevronDown } from 'react-icons/fi'
 import {
   EIGHTY_G_PDF,
-  RAZORPAY_URL,
+  PAYU_URL,
   REGISTRATION_PDF,
   getAboutPageRoute,
   getAccountDonationRoute,
   getContactPageRoute,
-  getCurrentCaseRoute,
+  getLiveCaseRoute,
   getGalleryPageRoute,
   getHomePageRoute,
   getNgoDarpanRoute,
@@ -18,30 +18,15 @@ import {
 } from '../../../routes/routes'
 import { PROGRAMS } from '../../../data/site'
 
-const NAV_ITEMS = [
+export const NAV_ITEMS = [
   { label: 'Home', to: getHomePageRoute(), end: true },
   { label: 'About Us', to: getAboutPageRoute() },
   {
-    label: 'Program',
-    to: getProgramPageRoute(),
-    children: PROGRAMS.map((program) => ({
-      label: program.shortTitle,
-      to: getProgramPageRoute(program.slug),
-    })),
-  },
-  {
     label: 'Support a Life',
+    highlight: true,
     children: [
-      { label: 'Current Case', to: getCurrentCaseRoute() },
+      { label: 'Live Case', to: getLiveCaseRoute(), highlight: true },
       { label: 'Success Case', to: getSuccessCaseRoute() },
-    ],
-  },
-  {
-    label: 'Donate Now',
-    children: [
-      { label: 'Donate With Account', to: getAccountDonationRoute() },
-      { label: 'Net Banking / Card', href: RAZORPAY_URL },
-      { label: 'Donate With UPI', to: getUpiDonationRoute() },
     ],
   },
   {
@@ -56,6 +41,29 @@ const NAV_ITEMS = [
   { label: 'Gallery', to: getGalleryPageRoute() },
   { label: 'Contact Us', to: getContactPageRoute() },
 ]
+
+export const ACTION_ITEMS = [
+  {
+    label: 'Donate Now',
+    cta: 'donate',
+    children: [
+      { label: 'Donate With Account', to: getAccountDonationRoute() },
+      { label: 'Net Banking / Card', href: PAYU_URL },
+      { label: 'Donate With UPI', to: getUpiDonationRoute() },
+    ],
+  },
+  {
+    label: 'Sponsor Now',
+    cta: 'sponsor',
+    to: getProgramPageRoute(),
+    children: PROGRAMS.map((program) => ({
+      label: program.shortTitle,
+      to: getProgramPageRoute(program.slug),
+    })),
+  },
+]
+
+export const ALL_NAV_ITEMS = [...NAV_ITEMS, ...ACTION_ITEMS]
 
 function MenuLink({ item, className, onNavigate }) {
   const resolvedClass =
@@ -91,30 +99,104 @@ function MenuLink({ item, className, onNavigate }) {
   )
 }
 
+function DropdownTrigger({ item, className, showChevron = true }) {
+  const chevron = showChevron ? <FiChevronDown className="site-cta-caret size-3" /> : null
+
+  if (item.to) {
+    return (
+      <NavLink to={item.to} className={({ isActive }) => `${className} ${isActive ? 'is-active' : ''}`}>
+        {item.label}
+        {chevron}
+      </NavLink>
+    )
+  }
+
+  return (
+    <span className={className}>
+      {item.label}
+      {chevron}
+    </span>
+  )
+}
+
 export default function PrimaryMenu({
   className = '',
   itemClassName,
   onNavigate,
   variant = 'desktop',
+  items = NAV_ITEMS,
 }) {
   if (variant === 'overlay') {
     return (
       <nav className={className} aria-label="Primary">
-        {NAV_ITEMS.map((item) => (
-          <div key={item.label} className="site-overlay-group">
-            <MenuLink
-              item={item.to || item.href ? item : { ...item, to: item.children?.[0]?.to }}
-              onNavigate={onNavigate}
-              className={itemClassName}
+        {items.map((item) =>
+          item.cta ? (
+            <div key={item.label} className="site-overlay-group site-overlay-cta-group">
+              <MenuLink
+                item={item.to || item.href ? item : { ...item, to: item.children?.[0]?.to }}
+                onNavigate={onNavigate}
+                className={`site-overlay-cta site-overlay-cta--${item.cta}`}
+              />
+              {item.children ? (
+                <div className="site-overlay-sub">
+                  {item.children.map((child) => (
+                    <MenuLink
+                      key={child.label}
+                      item={child}
+                      onNavigate={onNavigate}
+                      className={`site-overlay-sublink${child.highlight ? ' site-overlay-live' : ''}`}
+                    />
+                  ))}
+                </div>
+              ) : null}
+            </div>
+          ) : (
+            <div key={item.label} className="site-overlay-group">
+              <MenuLink
+                item={item.to || item.href ? item : { ...item, to: item.children?.[0]?.to }}
+                onNavigate={onNavigate}
+                className={({ isActive }) =>
+                  `${typeof itemClassName === 'function' ? itemClassName({ isActive }) : itemClassName} ${
+                    item.highlight ? 'site-overlay-live' : ''
+                  }`
+                }
+              />
+              {item.children ? (
+                <div className="site-overlay-sub">
+                  {item.children.map((child) => (
+                    <MenuLink
+                      key={child.label}
+                      item={child}
+                      onNavigate={onNavigate}
+                      className={`site-overlay-sublink${child.highlight ? ' site-overlay-live' : ''}`}
+                    />
+                  ))}
+                </div>
+              ) : null}
+            </div>
+          ),
+        )}
+      </nav>
+    )
+  }
+
+  if (variant === 'cta') {
+    return (
+      <nav className={className} aria-label="Quick actions">
+        {items.map((item) => (
+          <div key={item.label} className="site-dropdown site-dropdown--end site-header-cta-wrap">
+            <DropdownTrigger
+              item={item}
+              className={`site-header-cta site-header-cta--${item.cta} site-dropdown-trigger`}
             />
             {item.children ? (
-              <div className="site-overlay-sub">
+              <div className="site-dropdown-menu">
                 {item.children.map((child) => (
                   <MenuLink
                     key={child.label}
                     item={child}
                     onNavigate={onNavigate}
-                    className="site-overlay-sublink"
+                    className="site-dropdown-link"
                   />
                 ))}
               </div>
@@ -127,35 +209,25 @@ export default function PrimaryMenu({
 
   return (
     <nav className={className} aria-label="Primary">
-      {NAV_ITEMS.map((item, index) =>
+      {items.map((item, index) =>
         item.children ? (
           <div
             key={item.label}
-            className={`site-dropdown ${index >= NAV_ITEMS.length - 4 ? 'site-dropdown--end' : ''}`}
+            className={`site-dropdown ${index >= items.length - 3 ? 'site-dropdown--end' : ''}`}
           >
-            {item.to ? (
-              <NavLink
-                to={item.to}
-                className={({ isActive }) =>
-                  `${itemClassName ? itemClassName({ isActive }) : ''} site-dropdown-trigger`
-                }
-              >
-                {item.label}
-                <FiChevronDown className="size-3.5" />
-              </NavLink>
-            ) : (
-              <span className={`${itemClassName ? itemClassName({ isActive: false }) : ''} site-dropdown-trigger`}>
-                {item.label}
-                <FiChevronDown className="size-3.5" />
-              </span>
-            )}
+            <DropdownTrigger
+              item={item}
+              className={`${itemClassName ? itemClassName({ isActive: false }) : ''} site-dropdown-trigger${
+                item.highlight ? ' site-nav-live' : ''
+              }`}
+            />
             <div className="site-dropdown-menu">
               {item.children.map((child) => (
                 <MenuLink
                   key={child.label}
                   item={child}
                   onNavigate={onNavigate}
-                  className="site-dropdown-link"
+                  className={`site-dropdown-link${child.highlight ? ' site-nav-live' : ''}`}
                 />
               ))}
             </div>

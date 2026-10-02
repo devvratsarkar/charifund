@@ -3,7 +3,7 @@ import { HiArrowNarrowRight } from 'react-icons/hi'
 import PageHero from '../../components/layout/PageHero'
 import Reveal from '../../components/ui/Reveal'
 import { ORG } from '../../data/site'
-import { getAccountDonationRoute, getUpiDonationRoute, RAZORPAY_URL } from '../../routes/routes'
+import { getAccountDonationRoute, getUpiDonationRoute, PAYU_URL } from '../../routes/routes'
 
 const WAYS = [
   {
@@ -15,7 +15,7 @@ const WAYS = [
   {
     title: 'Net Banking / Debit / Credit Card',
     copy: 'Give securely online through Razorpay with net banking, debit card, or credit card.',
-    href: RAZORPAY_URL,
+    href: PAYU_URL,
     external: true,
   },
   {

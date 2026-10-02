@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { HiArrowNarrowRight } from 'react-icons/hi'
-import { RAZORPAY_URL, getContactPageRoute } from '../../routes/routes'
+import { PAYU_URL, getContactPageRoute } from '../../routes/routes'
 import Reveal from '../ui/Reveal'
 
 export default function DonateBand() {
@@ -26,7 +26,7 @@ export default function DonateBand() {
         </Reveal>
         <Reveal variant="right" delay={140} className="flex flex-wrap gap-3">
           <a
-            href={RAZORPAY_URL}
+            href={PAYU_URL}
             target="_blank"
             rel="noreferrer"
             className="group inline-flex w-fit items-center bg-secondary text-[12px] font-extrabold uppercase tracking-[0.16em] text-primary"
