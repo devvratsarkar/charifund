@@ -150,6 +150,7 @@ export const LIVE_CASES = [
   { name: 'Sanskar Raghav', condition: 'Blood Cancer (ALL)', age: '10 years', image: '/images/cases/sanskar-raghav.jpg', details: '/cases/sanskar-raghav.pdf' },
   { name: 'Daksh Sharma', condition: 'Blood Cancer', age: '13 years', image: '/images/cases/daksh-sharma.jpg', details: '/cases/daksh-sharma.pdf' },
   { name: 'Aryan Raj', condition: 'Blood Cancer', age: '5 years', image: '/images/cases/aryan-raj.jpg', details: '/cases/aryan-raj.pdf' },
+  { name: 'Shivansh', condition: 'Stomach Infection Surgery', age: '4 months', image: '/images/cases/shivansh.jpg', details: '/cases/shivansh.pdf' },
 ]
 
 export const SUCCESS_CASES = [
