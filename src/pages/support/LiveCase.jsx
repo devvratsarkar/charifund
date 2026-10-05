@@ -15,7 +15,7 @@ export default function LiveCasePage() {
 
       <section className="bg-cream py-16 sm:py-20">
         <div className="custom_container grid gap-10 lg:grid-cols-[1.35fr_0.65fr]">
-          <div className="grid gap-5 sm:grid-cols-2">
+          <div className="grid content-start items-start gap-5 sm:grid-cols-2">
             {LIVE_CASES.map((item, index) => (
               <Reveal key={item.name} delay={index * 40} className="overflow-hidden bg-white shadow-[0_16px_40px_rgba(18,47,42,0.08)]">
                 <img src={item.image} alt={item.name} className="h-64 w-full object-cover object-top" />

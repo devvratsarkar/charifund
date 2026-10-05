@@ -145,7 +145,7 @@ export const PROGRAMS = [
 ]
 
 export const LIVE_CASES = [
-  { name: 'Prince Kumar', condition: 'Blood Skin Cancer (ALL)', age: '6.3 years', image: '/images/cases/prince-kumar.jpg', details: '/cases/prince-kumar.pdf' },
+  { name: 'Prince Kumar', condition: 'Blood Skin Cancer (ALL)', age: '6.3 years', image: '/images/cases/prince-kumar-1.jpg', details: '/cases/prince-kumar.pdf' },
 ]
 
 export const SUCCESS_CASES = [
