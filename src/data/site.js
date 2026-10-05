@@ -146,6 +146,10 @@ export const PROGRAMS = [
 
 export const LIVE_CASES = [
   { name: 'Prince Kumar', condition: 'Blood Skin Cancer (ALL)', age: '6.3 years', image: '/images/cases/prince-kumar-1.jpg', details: '/cases/prince-kumar.pdf' },
+  { name: 'Baby Ayaza', condition: 'Eye Cancer (ALL)', age: '1.8 months', image: '/images/cases/baby-ayaza.jpg', details: '/cases/baby-ayaza.pdf' },
+  { name: 'Sanskar Raghav', condition: 'Blood Cancer (ALL)', age: '10 years', image: '/images/cases/sanskar-raghav.jpg', details: '/cases/sanskar-raghav.pdf' },
+  { name: 'Daksh Sharma', condition: 'Blood Cancer', age: '13 years', image: '/images/cases/daksh-sharma.jpg', details: '/cases/daksh-sharma.pdf' },
+  { name: 'Aryan Raj', condition: 'Blood Cancer', age: '5 years', image: '/images/cases/aryan-raj.jpg', details: '/cases/aryan-raj.pdf' },
 ]
 
 export const SUCCESS_CASES = [
