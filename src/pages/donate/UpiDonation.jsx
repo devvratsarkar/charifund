@@ -2,15 +2,6 @@ import BankDetails from '../../components/shared/BankDetails'
 import PageHero from '../../components/layout/PageHero'
 import Reveal from '../../components/ui/Reveal'
 
-const UPI_BANK = {
-  name: 'HDFC Bank',
-  beneficiary: 'MANAV SEWA HEALTH AND EDUCATION TRUST',
-  account: '50200068338322',
-  ifsc: 'HDFC0003987',
-  type: 'Current Account',
-  branch: 'Shakarpur Delhi',
-}
-
 export default function UpiDonationPage() {
   return (
     <>
@@ -29,7 +20,7 @@ export default function UpiDonationPage() {
               className="mx-auto w-full max-w-md object-contain"
             />
           </Reveal>
-          <BankDetails bank={UPI_BANK} />
+          <BankDetails />
         </div>
       </section>
     </>

@@ -8,7 +8,7 @@ import { getAccountDonationRoute, getUpiDonationRoute, PAYU_URL } from '../../ro
 const WAYS = [
   {
     title: 'Donate With Account',
-    copy: 'Transfer directly to the Manav Sewa Health and Education Trust current account at State Bank of India.',
+    copy: 'Transfer directly to the Manav Sewa Health and Education Trust current account at HDFC Bank.',
     to: getAccountDonationRoute(),
     external: false,
   },

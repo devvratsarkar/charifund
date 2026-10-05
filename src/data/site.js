@@ -15,13 +15,12 @@ export const ORG = {
 }
 
 export const BANK = {
-  name: 'State Bank of India',
+  name: 'HDFC Bank',
   beneficiary: 'MANAV SEWA HEALTH AND EDUCATION TRUST',
-  account: '42559073038',
-  ifsc: 'SBIN0019087',
+  account: '50200068338322',
+  ifsc: 'HDFC0003987',
   type: 'Current Account',
-  branch: 'Vikas Marg (SBI)',
-  logo: '/images/sbi.png',
+  branch: 'Shakarpur Delhi',
 }
 
 export const SOCIAL = [
