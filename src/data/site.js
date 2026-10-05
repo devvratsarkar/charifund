@@ -145,19 +145,7 @@ export const PROGRAMS = [
 ]
 
 export const LIVE_CASES = [
-  { name: 'Hanshika', condition: 'Blood Cancer', age: '6 years', image: '/images/cases/hanshika.jpg', details: '/cases/hanshika.pdf' },
-  { name: 'Aditya', condition: 'Blood cancer', age: '6 years', image: '/images/cases/aditya.jpg', details: '/cases/aditya.pdf' },
-  { name: 'Ravinandan Panday', condition: 'Brain Tumor', age: '3 years', image: '/images/cases/ravinand.jpg', details: '/cases/ravinandan.pdf' },
-  { name: 'Ishrat Parveen', condition: 'Blood Cancer', age: '10 years', image: '/images/cases/ishrat.jpeg', details: '/cases/ishrat.pdf' },
-  { name: 'Ayansh Raj', condition: 'Eye Cancer', age: '4 years', image: '/images/cases/ayansh.jpg', details: '/cases/ayansh.pdf' },
-  { name: 'Balwant Singh', condition: 'Blood Cancer', age: '2.4 years', image: '/images/cases/balwant.jpg', details: '/cases/balwant.pdf' },
-  { name: 'Rishab', condition: 'Eye Cancer', age: '3 years', image: '/images/cases/rishab.jpeg', details: '/cases/rishab.pdf' },
-  { name: 'Arshad Husain', condition: 'Blood Cancer', age: '8 months', image: '/images/cases/arshad.jpg', details: '/cases/arshad.pdf' },
-  { name: 'Sarwan Kumar', condition: 'Blood Cancer', age: '8 years', image: '/images/cases/sarwan.jpeg', details: '/cases/sarwan.pdf' },
-  { name: 'Kunal', condition: 'Blood Cancer', age: '2 years', image: '/images/cases/kunal.jpg', details: '/cases/kunal.pdf' },
-  { name: 'Ishwar', condition: 'Blood Cancer', age: '14 years', image: '/images/cases/ishwar.jpeg', details: '/cases/ishwar.pdf' },
-  { name: 'Harshit', condition: 'Blood Cancer', age: '8 years', image: '/images/cases/harshit.jpeg', details: '/cases/harshit.pdf' },
-  { name: 'Baby Rida Nuri', condition: 'Blood Cancer', age: '1 year', image: '/images/cases/rida-nuri.jpeg', details: '/cases/rida.pdf' },
+  { name: 'Prince Kumar', condition: 'Blood Skin Cancer (ALL)', age: '6.3 years', image: '/images/cases/prince-kumar.jpg', details: '/cases/prince-kumar.pdf' },
 ]
 
 export const SUCCESS_CASES = [
